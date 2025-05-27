@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TroyaOnFire | SignIn</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    
+
+</head>
+<body>
+    <div class="container">
+        <div class="curved-shape"></div>
+        <div class="curved-shape2"></div>
+        <div class="form-box Login">
+            <h2 class="animation" style="--D:0; --S:21">Login</h2>
+            <form id="login-form">
+                <div class="input-box animation" style="--D:1; --S:22">
+                    <input type="email" name="email" required>
+                    <label for="">Email</label>
+                    <i class='bx bxs-user'  ></i>
+                </div>
+                <div class="input-box animation" style="--D:2; --S:23">
+                    <input type="password" name="password" required>
+                    <label for="">Password</label>
+                    <i class='bx bxs-lock-alt'></i> 
+                </div>
+                <div class="input-box animation" style="--D:3; --S:24">
+                    <button class="btn" type="submit">Login</button>
+                </div>
+
+                <div class="regi-link animation" style="--D:4; --S:25">
+                    <p>Don't have an account? <a href="#" class="SignUpLink">SignUp</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="info-content Login">
+            <h2 class="animation" style="--D:0; --S:20">WELCOME BACK!</h2>
+        </div>
+        <div class="form-box Register">
+            <h2 class="animation" style="--li:17; --S:0;">Register</h2>
+            <form id="register-form">
+                
+                <div class="input-box animation" style="--li:18; --S:1;">
+                    <input type="email" name="email" required>
+                    <label for="">Email</label>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box animation" style="--li:18; --S:1;">
+                    <input type="text" name="country" required>
+                    <label for="">Country</label>
+                    <i class='bx bxs-flag-alt-2'></i>
+                </div>
+                <div class="input-box animation" style="--li:19; --S:2;">
+                    <input type="password" name="password" required>
+                    <label for="">Password</label>
+                    <i class='bx bxs-lock-alt'></i> 
+                </div>
+                <div class="input-box animation" style="--li:20; --S:3;">
+                    <button class="btn" type="submit">Register</button>
+                </div>
+                <div class="regi-link animation" style="--li:21; --S:4;">
+                    <p>Already have an account? <a href="#" class="SignInLink">Sign In</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="info-content Register">
+            <h2 class="animation" style="--li:17; --S:0;">Hi there,</h2>
+            <p class="animation" style="--li:18; --S:0;">You can register to our website and help us find the fires</p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("AajpVPu832qB6cqgy"); 
+  })();
+</script>
+
+   <script src="login.js"></script>
+
+</body>
+</html>
