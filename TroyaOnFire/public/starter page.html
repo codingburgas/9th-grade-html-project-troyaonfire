@@ -6,6 +6,8 @@
   <title>Troya on Fire</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="starter page.css">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 </head>
 <body>
   <header class="navbar">
@@ -33,18 +35,32 @@
     </div>
   </header>
 
-  <main class="hero">
-    <p class="subtitle">Community Fire Safety Platform</p>
-    <h1>Stay Safe, <span class="highlight">Stay Connected</span></h1>
-    <p class="description">
-      Join your local firefighter community. Share safety tips, report incidents, and stay informed about fire safety in your region.
-    </p>
-    <div class="hero-buttons">
-      <button class="btn red">Get Started</button>
-      <button class="btn dark">View Fire Map</button>
-    </div>
-  </main>
+
+<main class="hero" data-aos="fade-up">
+  <p class="subtitle" data-aos="fade-up">Community Fire Safety Platform</p>
+  <h1 data-aos="fade-up">Stay Safe, <span class="highlight">Stay Connected</span></h1>
+  <p class="description" data-aos="fade-up">
+    Join your local firefighter community. Share safety tips, report incidents, and stay informed about fire safety in your region.
+  </p>
+  <div class="hero-buttons" data-aos="fade-up">
+    <button class="btn red">Get Started</button>
+    <button class="btn dark">View Fire Map</button>
+  </div>
+</main>
+
+
+
+
+
 
   <script src="starter page.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 3000, 
+    once: false    
+  });
+</script>
+
 </body>
 </html>
