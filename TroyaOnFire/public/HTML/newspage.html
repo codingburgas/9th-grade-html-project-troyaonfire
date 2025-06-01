@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fire Safety App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../CSS/newspage.css">
+  
+</head>
+<body>
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <span class="sidebar-heading">Dashboard</span>
+    <ul>
+      <li><a href="#">Fire Reports</a></li>
+      <li><a href="#">News & Events</a></li>
+      <li><a href="#">Training & Career</a></li>
+      <li><a href="#">Organization</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="menu-icon" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <h1 class="site-title">Troya<span class="highlight">OnFire</span></h1>
+
+    <div class="nav-actions">
+        <div class="search-container" id="searchContainer">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button class="icon-button" id="searchBtn" aria-label="Search">
+                <i class="fa-solid fa-magnifying-glass fa-sm" style="color: #ffffff;"></i>
+            </button>
+        </div>
+
+        <label class="toggle-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+
+        <button class="icon-button" id="addPostBtn" aria-label="Add">
+            <i class="fa-solid fa-plus fa-xs" style="color: #ffffff;"></i>
+        </button>
+        <button class="icon-button" aria-label="User Profile">
+            <i class="fa-regular fa-user fa-sm" style="color: #ffffff;"></i>
+        </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+      <button class="tab-btn active">News</button>
+      <button class="tab-btn">Events</button>
+    </div>
+
+    <!-- News Grid -->
+    <div class="news-grid" id="newsGrid">
+      <!-- Posts will be loaded here -->
+    </div>
+  </main>
+
+  <!-- Post Modal -->
+  <div class="modal-overlay" id="postModal">
+    <div class="post-modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Create New Post</h2>
+        <button class="close-btn" id="closeModal">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+      
+      <form id="postForm">
+        <div class="form-group">
+          <label for="postTitle">Title</label>
+          <input type="text" id="postTitle" name="title" required placeholder="Enter post title...">
+        </div>
+        
+        <div class="form-group">
+          <label for="postCategory">Category</label>
+          <select id="postCategory" name="category" required>
+            <option value="">Select category...</option>
+            <option value="Fire Report">Fire Report</option>
+            <option value="Safety Alert">Safety Alert</option>
+            <option value="News">News</option>
+            <option value="Training">Training</option>
+            <option value="Equipment">Equipment</option>
+            <option value="Community">Community</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="postContent">Content</label>
+          <textarea id="postContent" name="content" required placeholder="Write your post content here..."></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="postSource">Source (optional)</label>
+          <input type="url" id="postSource" name="source" placeholder="https://example.com">
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" class="btn secondary" id="cancelPost">Cancel</button>
+          <button type="submit" class="btn primary">Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Delete Confirmation Modal -->
+<div class="modal-overlay" id="deleteModal">
+  <div class="post-modal" style="max-width: 400px;">
+    <div class="modal-header">
+      <h2 class="modal-title">Confirm Deletion</h2>
+      <button class="close-btn" id="closeDeleteModal">
+        <i class="fa-solid fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to delete this post? This action cannot be undone.</p>
+    </div>
+    <div class="form-actions">
+      <button type="button" class="btn secondary" id="cancelDelete">Cancel</button>
+      <button type="button" class="btn primary" id="confirmDelete">Delete</button>
+    </div>
+  </div>
+</div>
+<script src="../JS/newspage.js"></script>
+  
+</body>
+</html>
