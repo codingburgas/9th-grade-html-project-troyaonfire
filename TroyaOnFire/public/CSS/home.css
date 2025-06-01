@@ -1,0 +1,253 @@
+    :root {
+  --bg: linear-gradient(to bottom, #313741, #000000);
+  --text: white;
+  --secondary-text: #ccc;
+  --graphic-bg: #2f3440;
+  --button-bg: linear-gradient(to right, #BF1818, #5F0909);
+  --light-bg: white;
+  --sidebar-light-bg:rgb(241, 245, 248)2;
+  --sidebar-dark-bg: #000000;
+  --sidebar-text: #ffffff;
+  --sidebar-heading: #ffffffa1;
+}
+
+body.light {
+  --bg: linear-gradient(to bottom, #FFFFFF, #99BFCD);
+  --text: #1c1f24;
+  --secondary-text: #444;
+  --graphic-bg: #e3e3e3;
+  --button-bg: linear-gradient(to right, #BF1818, #5F0909);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #0b0d0f;
+}
+
+.menu-icon {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Sidebar */
+
+/* Hamburger menu icon */
+.menu-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 20;
+}
+
+.menu-icon span {
+  display: block;
+  width: 28px;
+  height: 4px;
+  margin: 5px 0;
+  background: #fff;
+  border-radius: 20px;
+  transition: 0.4s;
+  position: relative;
+}
+
+/* Animate to X when sidebar is open */
+.menu-icon.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 4px);
+}
+.menu-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-icon.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(10px, -4px);
+}
+
+.sidebar-heading {
+font-size: 1.5rem;
+  color: var(--sidebar-heading);
+  margin-top: 4rem; /* Reduced from 100rem to a reasonable value */
+  margin-bottom: 2rem;
+  font-weight: bold;
+  display: block; /* Ensures margins work properly */
+}
+
+.sidebar {
+  position: fixed;
+  top: 5px;
+  left: -300px;
+  width: 250px;
+  height: 100%;
+  background: var(--sidebar-dark-bg);
+  color: white;
+  padding: 2rem 1rem;
+  transition: left 0.3s ease;
+  z-index: 10;
+  border-top-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar ul li {
+  
+  margin: 1rem 0;
+}
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Search Input */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-container input {
+  width: 0;
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+}
+.search-container.expanded input {
+  width: 150px;
+  opacity: 1;
+  margin-right: 0.5rem;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.text-content {
+  max-width: 600px;
+  flex: 1;
+}
+.text-content h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+.text-content .highlight {
+  color: red;
+}
+.text-content p {
+  font-size: 1.3rem;
+  margin: 1rem 0 2rem 0;
+  color: var(--secondary-text);
+}
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+.btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.btn.primary {
+  background-color: var(--button-bg);
+  color: white;
+}
+.btn.secondary {
+  background-color: #def6ff;
+  color: black;
+}
+
+.graphic-box {
+  width: 320px;
+  height: 300px;
+  background-color: var(--graphic-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  font-size: 1.3rem;
+  color: var(--secondary-text);
+  flex-shrink: 0;
+}
