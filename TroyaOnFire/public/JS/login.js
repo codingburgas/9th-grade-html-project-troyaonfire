@@ -72,17 +72,11 @@ loginForm.addEventListener('submit', function(e) {
   .then(msg => {
     alert(msg);
     localStorage.setItem("user", JSON.stringify({ email }));
-
+    window.location.href = "../index.html"; 
   })
   .catch(err => {
     alert('Invalid credentials');
     console.error(err);
   });
 });
-
-// Example after login/register success
-localStorage.setItem("user", JSON.stringify({
-  email: user.email,
-  country: user.country
-}));
 
