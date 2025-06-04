@@ -14,7 +14,7 @@ const initializeSidebarToggle = () => {
   menuToggle.addEventListener('click', function() {
     // Toggle sidebar open state
     sidebar.classList.toggle('open');
-    
+
     // Animate menu icon (hamburger to X)
     this.classList.toggle('active');
     
@@ -123,31 +123,7 @@ const enhanceSidebarLinks = () => {
 /**
  * INITIALIZE ALL COMPONENTS
  */
-document.addEventListener('DOMContentLoaded', () => {
-  initializeSidebarToggle();
-  initializeSearch();
-  initializeThemeToggle();
-  enhanceSidebarLinks();
-  
-  // Restore saved theme preference
-  const savedTheme = localStorage.getItem('themePreference');
-  if (savedTheme === 'light') {
-    document.body.classList.add('light');
-    document.getElementById('themeToggle').checked = false;
-  }
-});
 
-/**
- * WINDOW RESIZE HANDLER
- * Close sidebar on mobile when resizing to desktop
- */
-window.addEventListener('resize', () => {
-  const sidebar = document.getElementById('sidebar');
-  if (window.innerWidth > 768 && sidebar.classList.contains('open')) {
-    sidebar.classList.remove('open');
-    document.getElementById('menuToggle').classList.remove('active');
-  }
-});
 /**
  * FEATURE CARDS ANIMATION
  * Adds animation when cards come into view
@@ -179,13 +155,12 @@ const initializeFeatureCards = () => {
   });
 };
 
-// Add this to your DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', () => {
   initializeSidebarToggle();
   initializeSearch();
   initializeThemeToggle();
   enhanceSidebarLinks();
-  initializeFeatureCards(); // Add this line
+  console.log('All components initialized');
   
   // Restore saved theme preference
   const savedTheme = localStorage.getItem('themePreference');
@@ -194,3 +169,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('themeToggle').checked = false;
   }
 });
+
+/**
+ * WINDOW RESIZE HANDLER
+ * Close sidebar on mobile when resizing to desktop
+ */
+window.addEventListener('resize', () => {
+  const sidebar = document.getElementById('sidebar');
+  if (window.innerWidth > 768 && sidebar.classList.contains('open')) {
+    sidebar.classList.remove('open');
+    document.getElementById('menuToggle').classList.remove('active');
+  }
+});
+
