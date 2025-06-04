@@ -8,6 +8,7 @@
   <!-- External styles -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="../CSS/map.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
    
 </head>
@@ -58,8 +59,14 @@
     </div>
   </header>
 
-  
+  <!-- 🌍 Map Section -->
+  <main>
+    <h2 style="margin-left: 20px;">Map of Your Country</h2>
+    <div id="map"></div>
+  </main>
 
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="../JS/map.js"></script>
 </body>
 </html>

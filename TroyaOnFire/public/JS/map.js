@@ -155,22 +155,3 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-// 2. Get country from localStorage
-const userCountry = localStorage.getItem("userCountry");
-
-if (userCountry) {
-  // 3. Geocode the country name using Nominatim
-  fetch(`https://nominatim.openstreetmap.org/search?country=${userCountry}&format=json`)
-    .then(res => res.json())
-    .then(data => {
-      if (data && data.length > 0) {
-        const { lat, lon } = data[0];
-        map.setView([lat, lon], 6); // Zoom to country level
-      } else {
-        console.warn("Country not found on map.");
-      }
-    })
-    .catch(err => {
-      console.error("Geocoding error:", err);
-    });
-}
