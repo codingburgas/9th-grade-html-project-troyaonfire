@@ -23,5 +23,10 @@
     "email": "helloo@gmail.com",
     "password": "$2b$10$oPEUTPmgp/wBi68q3t9rFuFB2baoPZmTnxI8mR0o./wkAmjuOcJdi",
     "country": "ewrf"
+  },
+  {
+    "email": "what@gmail.com",
+    "password": "$2b$10$r7xlH/21ZmMO4r/gdaRI.O40fZwHti03MZH0N1lcmhMjBk7IpK2pq",
+    "country": "France"
   }
 ]

@@ -67,16 +67,20 @@ loginForm.addEventListener('submit', function(e) {
   })
   .then(res => {
     if (!res.ok) throw new Error('Login failed');
-    return res.text();
+    return res.json();
   })
-  .then(msg => {
-    alert(msg);
-    localStorage.setItem("user", JSON.stringify({ email }));
-    window.location.href = "../index.html"; 
+  .then(user => {
+    alert("Login successful!");
+
+    // Save email and country to localStorage
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("userCountry", user.country); 
+
+    // Redirect to homepage
+    window.location.href = "../index.html";
   })
   .catch(err => {
     alert('Invalid credentials');
     console.error(err);
   });
 });
-

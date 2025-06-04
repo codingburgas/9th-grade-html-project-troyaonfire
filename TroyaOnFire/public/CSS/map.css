@@ -153,10 +153,10 @@ input:checked + .slider:before {
 .sidebar-heading {
 font-size: 1.5rem;
   color: var(--sidebar-heading);
-  margin-top: 4rem; 
+  margin-top: 4rem; /* Reduced from 100rem to a reasonable value */
   margin-bottom: 2rem;
   font-weight: bold;
-  display: block; 
+  display: block; /* Ensures margins work properly */
 }
 
 .sidebar {
@@ -243,72 +243,11 @@ font-size: 1.5rem;
   50% { opacity: 0.8; }
 }
 
-/* Main Content */
-.main-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5rem;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-.text-content {
-  max-width: 600px;
-  flex: 1;
-}
-.text-content h1 {
-  font-size: 4rem;
-  margin: 0;
-}
-.text-content .highlight {
-  color: red;
-}
-.text-content p {
-  font-size: 1.3rem;
-  margin: 1rem 0 2rem 0;
-  color: var(--secondary-text);
-}
-.buttons {
-  display: flex;
-  gap: 1rem;
-}
-.btn {
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-}
-.btn.primary {
-  background: var(--button-bg);
-  color: white;
-}
-.btn.primary:hover {
-  filter: brightness(1.15);
-  box-shadow: 0 4px 16px rgba(191, 24, 24, 0.25);
-}
-.btn.secondary {
-  background-color: #def6ff;
-  color: black;
-}
-.btn.secondary:hover {
-  background-color: #b3e6ff;
-  color: #222;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
-}
-
-.graphic-box {
-  width: 520px;
-  height: 490px;
-  background-color: var(--graphic-bg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  font-size: 1.3rem;
-  color: var(--secondary-text);
-  flex-shrink: 0;
-}
-
+#map {
+      height: 500px;
+      width: 100%;
+      margin: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+    }
 

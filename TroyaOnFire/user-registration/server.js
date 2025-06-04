@@ -52,12 +52,14 @@ app.post('/login', async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(401).send('Invalid email or password');
 
-    res.send('Login successful!');
+    // Don't send the password back
+    res.json({ email: user.email, country: user.country });
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');
   }
 });
+
 
 
 
