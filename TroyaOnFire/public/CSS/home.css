@@ -302,6 +302,7 @@ font-size: 1.5rem;
   width: 520px;
   height: 490px;
   background-color: var(--graphic-bg);
+  background: url(../MEDIA/firefighterGraphic.jpg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -309,6 +310,7 @@ font-size: 1.5rem;
   font-size: 1.3rem;
   color: var(--secondary-text);
   flex-shrink: 0;
+  background-size: cover;
 }
 /* Feature Cards Section */
 .feature-cards {
