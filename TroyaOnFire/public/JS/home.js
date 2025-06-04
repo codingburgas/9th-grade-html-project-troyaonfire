@@ -148,3 +148,49 @@ window.addEventListener('resize', () => {
     document.getElementById('menuToggle').classList.remove('active');
   }
 });
+/**
+ * FEATURE CARDS ANIMATION
+ * Adds animation when cards come into view
+ */
+const initializeFeatureCards = () => {
+  const cards = document.querySelectorAll('.feature-card');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Add a staggered delay based on the card index
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, index * 100);
+        
+        // Unobserve after animation
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  // Set initial styles and observe
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(card);
+  });
+};
+
+// Add this to your DOMContentLoaded event
+document.addEventListener('DOMContentLoaded', () => {
+  initializeSidebarToggle();
+  initializeSearch();
+  initializeThemeToggle();
+  enhanceSidebarLinks();
+  initializeFeatureCards(); // Add this line
+  
+  // Restore saved theme preference
+  const savedTheme = localStorage.getItem('themePreference');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light');
+    document.getElementById('themeToggle').checked = false;
+  }
+});
