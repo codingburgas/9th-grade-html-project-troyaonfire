@@ -4,24 +4,21 @@
   box-sizing: border-box;
 }
 :root {
-  --bg: linear-gradient(to bottom, #313741, #000000);
+  --bg: #101215;
   --text: white;
   --secondary-text: #ccc;
-  --graphic-bg: #2f3440;
   --button-bg: linear-gradient(to right, #BF1818, #5F0909);
-  --light-bg: white;
-  --sidebar-light-bg: rgb(241, 245, 248);
-  --sidebar-dark-bg: #000000;
-  --sidebar-text: #ffffff;
-  --sidebar-heading: #ffffffa1;
+  --container-bg: #2E333C;
+  --input-bg: #d9d9d93e;
 }
 
 body.light {
-  --bg: linear-gradient(to bottom, #FFFFFF, #99BFCD);
+  --bg: #A0A3B1;
   --text: #1c1f24;
   --secondary-text: #444;
-  --graphic-bg: #e3e3e3;
   --button-bg: linear-gradient(to right, #BF1818, #5F0909);
+  --container-bg: #CFD2DE;
+  --input-bg: #41444e3b;
 }
 body.light .filter-section,
 body.light .map-legend,
@@ -158,7 +155,7 @@ input:checked + .slider:before {
 
 .sidebar-heading {
 font-size: 1.5rem;
-  color: var(--sidebar-heading);
+  color: #000;
   margin-top: 4rem; /* Reduced from 100rem to a reasonable value */
   margin-bottom: 2rem;
   font-weight: bold;
@@ -171,7 +168,7 @@ font-size: 1.5rem;
   left: -300px;
   width: 250px;
   height: 100%;
-  background: var(--sidebar-dark-bg);
+  background: #000;
   color: white;
   padding: 2rem 1rem;
   transition: left 0.3s ease;
@@ -301,7 +298,7 @@ font-size: 1.5rem;
     }
 
     .search-filter {
-      background-color: #2a2a2a;
+      background-color: var(--container-bg);
       padding: 20px;
       border-radius: 8px;
     }
@@ -328,7 +325,7 @@ font-size: 1.5rem;
     .filter-group input {
       width: 100%;
       padding: 8px;
-      background-color: #444;
+      background-color: var(--input-bg);
       border: none;
       border-radius: 4px;
       color: #fff;
@@ -336,13 +333,13 @@ font-size: 1.5rem;
     }
 
     .map-legend {
-      background-color: #2a2a2a;
+      background-color: var(--container-bg);
       padding: 20px;
       border-radius: 8px;
     }
 
     .map-legend h3 {
-      color: #ffffff;
+      color: var(--text);
       margin-bottom: 15px;
       font-size: 16px;
     }
@@ -377,7 +374,7 @@ font-size: 1.5rem;
     .map-container {
       width: 100%;
       height: 500px;
-      background-color: #2a2a2a;
+      background-color: var(--container-bg);
       border-radius: 10px;
       overflow: hidden;
       height: 400px;
@@ -385,7 +382,7 @@ font-size: 1.5rem;
 
 
     .recent-incidents {
-      background-color: #2a2a2a;
+      background-color: var(--container-bg);
       padding: 20px;
       border-radius: 8px;
     }
@@ -406,7 +403,7 @@ font-size: 1.5rem;
       display: flex;
       align-items: center;
       padding: 12px;
-      background-color: #333;
+      background-color: var(--container-bg);
       margin-bottom: 8px;
       border-radius: 5px;
       transition: background-color 0.3s ease;
@@ -448,7 +445,7 @@ font-size: 1.5rem;
     }
 
     .report-incident {
-      background-color: #2a2a2a;
+      background-color: var(--container-bg);
       padding: 20px;
       border-radius: 8px;
     }
@@ -488,7 +485,7 @@ font-size: 1.5rem;
     .form-group textarea {
       width: 100%;
       padding: 8px;
-      background-color: #444;
+      background-color: var(--input-bg);
       border: none;
       border-radius: 4px;
       color: #fff;
