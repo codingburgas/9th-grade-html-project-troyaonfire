@@ -1,0 +1,351 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --bg: #101215;
+  --text: white;
+  --secondary-text: #ccc;
+  --button-bg: linear-gradient(to right, #BF1818, #5F0909);
+  --sidebar-text: #ffffff;
+  --sidebar-heading: #ffffffa1;
+  --container-bg: #2E333C;
+  --input-bg: #d9d9d93e;
+}
+
+body.light {
+  --bg: #A0A3B1;
+  --text: #1c1f24;
+  --secondary-text: #444;
+  --graphic-bg: #e3e3e3;
+  --button-bg: linear-gradient(to right, #BF1818, #5F0909);
+  --sidebar-heading: #00000061;
+  --container-bg: #CFD2DE;
+  --input-bg: #41444e3b;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100vh;  
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #000;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.menu-icon {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: grey;
+  color:var(--text);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Sidebar */
+
+/* Hamburger menu icon */
+.menu-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 20;
+}
+
+.menu-icon span {
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin: 5px 0;
+  background: #fff;
+  border-radius: 20px;
+  transition: 0.4s;
+  position: relative;
+}
+
+/* Animate to X when sidebar is open */
+.menu-icon.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 4px);
+}
+.menu-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-icon.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(10px, -4px);
+}
+
+.sidebar-heading {
+font-size: 1.5rem;
+  color: var(--sidebar-heading);
+  margin-top: 4rem; /* Reduced from 100rem to a reasonable value */
+  margin-bottom: 2rem;
+  font-weight: bold;
+  display: block; /* Ensures margins work properly */
+}
+
+.sidebar {
+  position: fixed;
+  top: 5px;
+  left: -300px;
+  width: 250px;
+  height: 100%;
+  background: #000;
+  color: var(--text);
+  padding: 2rem 1rem;
+  transition: left 0.3s ease;
+  z-index: 10;
+  border-top-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar ul li {
+  
+  margin: 1rem 0;
+}
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Search Input */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-container input {
+  width: 0;
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+}
+.search-container.expanded input {
+  width: 150px;
+  opacity: 1;
+  margin-right: 0.5rem;
+}
+
+.site-title {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 0 0 1rem; /* Left margin for spacing from hamburger */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.site-title:hover {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  transform: scale(1.02);
+}
+
+.highlight {
+  color: #ff4444;
+  text-shadow: 0 0 8px rgba(255, 68, 68, 0.7);
+  margin-left: 4px;
+  animation: flicker 2s infinite alternate;
+  background: linear-gradient(to bottom, #b10a0a, #ff8800);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Main content */
+.dashboard {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container {
+  background-color: var(--container-bg);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.container-profile {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  background-color: #3a3a3a;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.container-region ul {
+  list-style: none;
+  padding: 0;
+}
+
+.container-region li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.badge {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 10px;
+}
+
+.container-community,
+.container-event {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container-event h3{
+    font-size: 1.2rem;
+}
+.container-event{
+      font-size: 11px;
+      gap:5px;
+}
+select,
+input,
+textarea {
+  background-color: var(--input-bg);
+  border: none;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  resize: none;
+}
+
+button {
+  background-color: #b30000;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  align-self: flex-end;
+  cursor: pointer;
+}
