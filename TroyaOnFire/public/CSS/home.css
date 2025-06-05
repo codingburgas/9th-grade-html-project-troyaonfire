@@ -246,13 +246,13 @@ input:checked + .slider:before {
   }
 }
 
-/* Main Content - Remove gap completely */
+/* Main Content */
 .main-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5rem;
-  gap: 0; /* NO GAP - dashboard will be right next to text */
+  gap: 0;
   flex-wrap: wrap;
 }
 .text-content {
@@ -301,38 +301,38 @@ input:checked + .slider:before {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Stats Dashboard - Extends to fill remaining space */
+/* Stats Dashboard - Smaller but still extended */
 .stats-dashboard {
   background: white;
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  flex: 1; /* Takes up remaining space to extend toward text */
-  max-width: 500px; /* Prevents it from getting too wide */
-  min-width: 400px; /* Ensures minimum width */
-  margin-left: 2rem; /* Small margin from text content */
+  flex: 1;
+  max-width: 550px; /* Reduced from 700px to 550px */
+  min-width: 450px; /* Reduced from 500px to 450px */
+  margin-left: 1.5rem; /* Slightly more margin */
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1.8rem; /* Reduced from 2rem to 1.8rem */
 }
 
 .stat-card {
   text-align: center;
-  padding: 1rem;
+  padding: 1.2rem; /* Reduced from 1.5rem to 1.2rem */
 }
 
 .stat-icon {
-  width: 48px;
+  width: 48px; /* Reduced from 52px to 48px */
   height: 48px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1rem;
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Reduced from 1.6rem to 1.5rem */
 }
 
 .red-bg {
@@ -356,15 +356,15 @@ input:checked + .slider:before {
 }
 
 .stat-number {
-  font-size: 2rem;
+  font-size: 2rem; /* Reduced from 2.2rem to 2rem */
   font-weight: bold;
   color: #1c1f24;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem; /* Reduced from 0.6rem to 0.5rem */
   transition: all 0.3s ease;
 }
 
 .stat-label {
-  font-size: 0.9rem;
+  font-size: 0.9rem; /* Reduced from 1rem to 0.9rem */
   color: #666;
   font-weight: 500;
 }
@@ -445,12 +445,12 @@ input:checked + .slider:before {
 
   .main-content {
     padding: 3rem 2rem;
-    gap: 1rem; /* Small gap on tablets */
+    gap: 0.5rem;
   }
 
   .stats-dashboard {
     flex: none;
-    width: 400px;
+    width: 450px;
     margin-left: 1rem;
   }
 }
@@ -469,7 +469,7 @@ input:checked + .slider:before {
 
   .stats-dashboard {
     width: 100%;
-    max-width: 500px;
+    max-width: 550px;
     margin-left: 0;
   }
 
