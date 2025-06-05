@@ -52,17 +52,163 @@
         <button class="icon-button" aria-label="Add">
             <i class="fa-solid fa-plus fa-xs" style="color: #ffffff;"></i>
         </button>
-        <a href="profile.html">"icon-button" aria-label="User Profile">
+        <a href="profile.html" class="icon-button" aria-label="User Profile">
             <i class="fa-regular fa-user fa-sm" style="color: #ffffff;"></i>
         </button></a>
     </div>
   </header>
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <!-- Fire Alert Button -->
+      <button class="fire-alert-btn">Report Fire Alert !</button>
 
-  <!--  Map Section -->
-  <main>
-    <h2 style="margin-left: 20px;">Map of Your Country</h2>
-    <div id="map"></div>
-  </main>
+      <!-- Search & Filter -->
+      <div class="search-filter">
+        <h3><i class="fa-solid fa-search"></i> Search & Filter</h3>
+        
+        <div class="filter-group">
+          <label>Search Location</label>
+          <input type="text" placeholder="Enter address or region">
+        </div>
+
+        <div class="filter-group">
+          <label>Incident Type</label>
+          <select>
+            <option>All incidents</option>
+            <option>Kitchen Fire</option>
+            <option>Forest Fire</option>
+            <option>Building Fire</option>
+            <option>Vehicle Fire</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Severity</label>
+          <select>
+            <option>All severities</option>
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+            <option>Critical</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Map Legend -->
+      <div class="map-legend">
+        <h3>Map Legend</h3>
+        <div class="legend-item">
+          <div class="legend-dot active-fire"></div>
+          <span>Active Fire</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot potential-hazard"></div>
+          <span>Potential Hazard</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot fire-station"></div>
+          <span>Fire Station</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot safe-zone"></div>
+          <span>Safe Zone</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <!-- Map Container -->
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+
+      <!-- Recent Incidents -->
+      <div class="recent-incidents">
+        <h3>Recent Incidents</h3>
+        <p>Latest Fire/Safety Reports</p>
+
+        <div class="incident-item">
+          <div class="incident-icon kitchen-fire"></div>
+          <div class="incident-details">
+            <div class="incident-title">Kitchen Fire - Vitosha Boulevard</div>
+            <div class="incident-location">Kitchen Fire - Vitosha Boulevard</div>
+          </div>
+          <div class="incident-time">2 hours ago</div>
+        </div>
+
+        <div class="incident-item">
+          <div class="incident-icon kitchen-fire"></div>
+          <div class="incident-details">
+            <div class="incident-title">Kitchen Fire - Vitosha Boulevard</div>
+            <div class="incident-location">Kitchen Fire - Vitosha Boulevard</div>
+          </div>
+          <div class="incident-time">1 day ago</div>
+        </div>
+
+        <div class="incident-item">
+          <div class="incident-icon fire-station"></div>
+          <div class="incident-details">
+            <div class="incident-title">Kitchen Fire - Vitosha Boulevard</div>
+            <div class="incident-location">Kitchen Fire - Vitosha Boulevard</div>
+          </div>
+          <div class="incident-time">3 days ago</div>
+        </div>
+      </div>
+
+      <!-- Report New Incident -->
+      <div class="report-incident">
+        <h3>Report New Incident</h3>
+        <p>Help us improve fire safety by reporting fire hazards or incidents</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Incident Type</label>
+            <select id="incidentType">
+              <option>All incidents</option>
+              <option>Kitchen Fire</option>
+              <option>Forest Fire</option>
+              <option>Building Fire</option>
+              <option>Vehicle Fire</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Severity</label>
+            <select id="severity">
+              <option>All severities</option>
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+              <option>Critical</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Location</label>
+          <input type="text" id="location" placeholder="Enter exact address or click on map">
+        </div>
+
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="title" placeholder="Add a title for this incident">
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="description" placeholder="Provide detailed description of the incident or hazard"></textarea>
+        </div>
+
+        <div class="form-buttons">
+          <button class="submit-btn" onclick="submitReport()">Submit Report</button>
+          <button class="cancel-btn" onclick="cancelReport()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
