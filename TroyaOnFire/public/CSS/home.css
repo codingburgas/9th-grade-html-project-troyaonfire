@@ -252,7 +252,7 @@ input:checked + .slider:before {
   justify-content: space-between;
   align-items: center;
   padding: 5rem;
-  gap: 1.5rem; /* Reduced from 3rem to bring elements closer */
+  gap: 0.5rem; /* Much smaller gap to bring dashboard closer */
   flex-wrap: wrap;
 }
 .text-content {
@@ -301,36 +301,36 @@ input:checked + .slider:before {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Stats Dashboard - Closer to text */
+/* Stats Dashboard - Extended closer to text */
 .stats-dashboard {
   background: white;
   border-radius: 20px;
-  padding: 2rem; /* Back to original padding */
+  padding: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: 400px; /* Back to original width */
+  width: 450px; /* Increased width to extend closer */
   flex-shrink: 0;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem; /* Back to original gap */
+  gap: 1.5rem;
 }
 
 .stat-card {
   text-align: center;
-  padding: 1rem; /* Back to original padding */
+  padding: 1rem;
 }
 
 .stat-icon {
-  width: 48px; /* Back to original size */
-  height: 48px; /* Back to original size */
-  border-radius: 12px; /* Back to original radius */
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1rem; /* Back to original margin */
-  font-size: 1.5rem; /* Back to original icon size */
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
 }
 
 .red-bg {
@@ -354,22 +354,28 @@ input:checked + .slider:before {
 }
 
 .stat-number {
-  font-size: 2rem; /* Back to original size */
+  font-size: 2rem;
   font-weight: bold;
   color: #1c1f24;
-  margin-bottom: 0.5rem; /* Back to original margin */
+  margin-bottom: 0.5rem;
   transition: all 0.3s ease;
 }
 
 .stat-label {
-  font-size: 0.9rem; /* Back to original size */
+  font-size: 0.9rem;
   color: #666;
   font-weight: 500;
 }
 
-.stat-number.updating {
+/* Updated color animations for up/down changes */
+.stat-number.updating-up {
   transform: scale(1.1);
-  color: #ff4444;
+  color: #22cc55; /* Green for increases */
+}
+
+.stat-number.updating-down {
+  transform: scale(1.1);
+  color: #ff4444; /* Red for decreases */
 }
 
 /* Feature Cards Section */
@@ -437,11 +443,11 @@ input:checked + .slider:before {
 
   .main-content {
     padding: 3rem 2rem;
-    gap: 1rem; /* Smaller gap on tablets */
+    gap: 0.5rem;
   }
 
   .stats-dashboard {
-    width: 350px; /* Back to smaller width */
+    width: 400px;
   }
 }
 
@@ -454,24 +460,16 @@ input:checked + .slider:before {
   .main-content {
     padding: 3rem 1.5rem;
     flex-direction: column;
-    gap: 2rem; /* Appropriate gap for stacked layout */
+    gap: 2rem;
   }
 
   .stats-dashboard {
     width: 100%;
-    max-width: 400px; /* Back to original max-width */
+    max-width: 450px;
   }
 
   .text-content h1 {
     font-size: 3rem;
-  }
-
-  .stats-grid {
-    gap: 1.5rem; /* Slightly smaller gap on mobile */
-  }
-
-  .stat-card {
-    padding: 1.2rem; /* Adjusted padding for mobile */
   }
 }
 
