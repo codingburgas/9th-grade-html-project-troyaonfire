@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../CSS/profile.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <span class="sidebar-heading">Dashboard</span>
+    <ul>
+      <li><a href="#">Fire Reports</a></li>
+      <li><a href="#">News & Events</a></li>
+      <li><a href="#">Organization</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="menu-icon" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+  <h1 class="site-title">Troya<span class="highlight">OnFire</span></h1>
+
+    <div class="nav-actions">
+        <div class="search-container" id="searchContainer">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button class="icon-button" id="searchBtn" aria-label="Search">
+                <i class="fa-solid fa-magnifying-glass fa-sm" style="color: #ffffff;"></i>
+            </button>
+        </div>
+
+        <label class="toggle-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+
+        <button class="icon-button" aria-label="Add">
+            <i class="fa-solid fa-plus fa-xs" style="color: #ffffff;"></i>
+        </button>
+        <a href=profile.html><button class="icon-button" aria-label="User Profile">
+            <i class="fa-regular fa-user fa-sm" style="color: #ffffff;"></i></a>
+        </button>
+    </div>
+  </header>
+  <!-- Main Content -->
+  <div class="dashboard">
+    <div class="left-column">
+      <div class="container container-profile">
+        <div class="avatar"></div>
+        <h2>Name Surname</h2>
+        <p>Working status: Region</p>
+        <div class="stats">
+          <div>0<br/>Posts</div>
+          <div>0<br/>Likes</div>
+        </div>
+      </div>
+
+      <div class="container container-region">
+        <h3><i class="fa-solid fa-location-dot fa-xs" style="color: #ca1c1c;"></i> Region</h3>
+        <ul>
+          <li>Active alerts <span class="badge">0</span></li>
+          <li>Fire stations <span class="badge">0</span></li>
+          <li>Community Members <span class="badge">0</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="right-column">
+      <div class="container container-community">
+        <h3>+ Share with Community</h3>
+        <label for="post-type-select">Post Type</label>
+        <select id="post-type-select">
+          <option>All post types</option>
+        </select>
+        <input type="text" placeholder="Enter Title here" />
+        <textarea placeholder="Share your report here..."></textarea>
+        <button>+ Share post</button>
+      </div>
+
+      <div class="container container-event">
+        <h3>+ Share your event</h3>
+        <label for="event-date-select">Event Date</label>
+        <select id="event-date-select"><option>Chosen event date</option></select>
+        <label for="event-hour-select">Event Hour</label>
+        <select id="event-hour-select"><option>Chosen event hour</option></select>
+        <label for="event-location-select">Event Location</label>
+        <select id="event-location-select"><option>Chosen event location</option></select>
+        <label for="event-type-select">Event Type</label>
+        <select id="event-type-select"><option>Chosen event type</option></select>
+        <button>+ Share post</button>
+      </div>
+    </div>
+  </div>
+  <script src="../JS/profile.js"></script>
+</body>
+</html>
