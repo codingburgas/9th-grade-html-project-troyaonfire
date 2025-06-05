@@ -79,7 +79,7 @@ const initializeThemeToggle = () => {
 }
 
 /**
- * LIVE STATS FUNCTIONALITY
+ * LIVE STATS FUNCTIONALITY WITH UP/DOWN COLOR LOGIC
  */
 const initializeLiveStats = () => {
   const stats = {
@@ -90,6 +90,8 @@ const initializeLiveStats = () => {
   }
 
   const updateStats = () => {
+    const oldStats = { ...stats }
+
     // Update Active Members (small random changes)
     stats.activeMembers += Math.floor(Math.random() * 3) - 1
 
@@ -106,29 +108,47 @@ const initializeLiveStats = () => {
       stats.regionsCovered += 1
     }
 
-    // Update the DOM with animation
-    updateStatElement("activeMembers", stats.activeMembers.toLocaleString())
-    updateStatElement("activeAlerts", stats.activeAlerts)
-    updateStatElement("safetyTips", stats.safetyTips)
-    updateStatElement("regionsCovered", stats.regionsCovered)
+    // Update the DOM with proper color animation based on change direction
+    updateStatElement(
+      "activeMembers",
+      stats.activeMembers.toLocaleString(),
+      oldStats.activeMembers,
+      stats.activeMembers,
+    )
+    updateStatElement("activeAlerts", stats.activeAlerts, oldStats.activeAlerts, stats.activeAlerts)
+    updateStatElement("safetyTips", stats.safetyTips, oldStats.safetyTips, stats.safetyTips)
+    updateStatElement("regionsCovered", stats.regionsCovered, oldStats.regionsCovered, stats.regionsCovered)
   }
 
-  const updateStatElement = (id, value) => {
+  const updateStatElement = (id, displayValue, oldValue, newValue) => {
     const element = document.getElementById(id)
-    if (element) {
-      element.classList.add("updating")
-      element.textContent = value
+    if (!element) return
+
+    // Determine if value went up or down
+    let animationClass = ""
+    if (newValue > oldValue) {
+      animationClass = "updating-up" // Green for increases
+    } else if (newValue < oldValue) {
+      animationClass = "updating-down" // Red for decreases
+    }
+
+    // Only animate if there was a change
+    if (animationClass) {
+      element.classList.add(animationClass)
+      element.textContent = displayValue
 
       setTimeout(() => {
-        element.classList.remove("updating")
+        element.classList.remove(animationClass)
       }, 300)
+    } else {
+      element.textContent = displayValue
     }
   }
 
   // Update stats every 5 seconds
   setInterval(updateStats, 5000)
 
-  console.log("Live stats initialized")
+  console.log("Live stats initialized with up/down color logic")
 }
 
 /**
