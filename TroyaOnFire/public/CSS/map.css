@@ -218,7 +218,7 @@ font-size: 1.5rem;
   font-size: 1.5rem;
   margin: 0 0 0 1rem; /* Left margin for spacing from hamburger */
   font-weight: bold;
-  display: flex;
+  display: inline-block;
   align-items: center;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
