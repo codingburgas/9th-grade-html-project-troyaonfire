@@ -1,62 +1,165 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Troya on Fire – FAQ</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-  <link rel="stylesheet" href="../CSS/FAQ.css">
+  <title>Fire Safety FAQ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../CSS/FAQ.css">
+
 </head>
-<body>
+<body>  
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <span class="sidebar-heading">Dashboard</span>
+    <ul>
+      <li><a href="#">Fire Reports</a></li>
+      <li><a href="#">News & Events</a></li>
+      <li><a href="#">Organization</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
 
-  <section class="faq-section" data-aos="fade-up">
-    <h2 class="faq-title" id="type-title">Frequently Asked Questions</h2>
-
-    <div class="faq-item" data-aos="fade-up">
-      <div class="faq-question">
-         How can I join the firefighter community?
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="faq-answer">
-        You can register by clicking on the "Get Started" button and filling in a brief profile with your location and interests.
-      </div>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="menu-icon" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
+    
+  <h1 class="site-title">Troya<span class="highlight">OnFire</span></h1>
 
-    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-      <div class="faq-question">
-         How do I report a fire incident?
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="faq-answer">
-        Use the "Fire Map" page to quickly mark and report incidents directly to the community and local authorities.
-      </div>
+    <div class="nav-actions">
+        <div class="search-container" id="searchContainer">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button class="icon-button" id="searchBtn" aria-label="Search">
+                <i class="fa-solid fa-magnifying-glass fa-sm" style="color: #ffffff;"></i>
+            </button>
+        </div>
+
+        <label class="toggle-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+
+        <button class="icon-button" aria-label="Add">
+            <i class="fa-solid fa-plus fa-xs" style="color: #ffffff;"></i>
+        </button>
+        <a href=profile.html><button class="icon-button" aria-label="User Profile">
+            <i class="fa-regular fa-user fa-sm" style="color: #ffffff;"></i></a>
+        </button>
     </div>
+  </header>
 
-    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-      <div class="faq-question">
-         Can I share fire safety tips?
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="faq-answer">
-        Absolutely! In the "Community" section, you can share tips, post educational content, and engage with other users.
-      </div>
+    <!--Main Content-->
+    <div class="container">
+    <header>
+      <h1>Fire safety FAQ</h1>
+      <p>Find answers to common fire safety questions and learn how to protect yourself and your community.</p>
+    </header>
+
+    <div class="grid-layout">
+      <!-- Left Column -->
+      <aside class="side-panel">
+        <div class="search-box card">
+          <h2>Search FAQ</h2>
+            <input type="text" id="searchInput" placeholder="Search questions" aria-label="Search questions">
+          <input type="submit" value="Search">
+        </div>
+
+        <div class="emergency-contacts card">
+          <h2>Emergency Contacts</h2>
+          <p><strong>Fire emergency</strong><br><h3>112</h3><small>For immediate fire emergencies</small></p><hr>
+          <p><strong>Fire Department (Non-Emergency)</strong><h3>+359 987 6543</h3><small>For non-urgent fire safety questions</small></p><hr>
+          <p><strong>Gas Emergency</strong><br><h3>+359 982 2222</h3><small>For gas leaks and related emergencies</small></p><hr>
+          <p><strong>Poison Control</strong><br><h3>+359 915 4409</h3><small>For chemical exposure or poisoning</small></p><hr>
+        </div>
+
+        <div class="quick-tips card">
+          <h2>Quick safety tips</h2>
+            <p><strong>Kitchen Safety</strong><br>Never leave cooking unattended<br><br></p>
+            <p><strong>Smoke Detectors</strong><br>Test monthly, replace batteries yearly<br><br></p>
+            <p><strong>Escape Plan</strong><br>Practice with your family regularly<br><br></p>
+            <p><strong>Fire Extinguisher</strong><br>Remember: PASS technique<br></p>
+        </div>
+      </aside>
+      <!-- Right Column -->
+      <main class="main-content">
+        <section class="card">
+          <h2>Fire prevention</h2>
+        <details>
+            <summary>How often should I check my smoke detectors?</summary>
+        <p>Test your smoke detectors monthly by pressing the test button. Replace batteries at least once a year, or when the detector chirps to indicate low battery. Replace the entire smoke detector every 10 years.</p>
+        </details>
+
+        <details>
+        <summary>What are the most common causes of house fires?</summary>
+            <p>
+            The most common causes include: cooking accidents (leading cause), heating equipment malfunctions, electrical issues, smoking materials, and candles. Always supervise cooking, maintain heating systems, and never leave candles unattended.</p>
+        </details>
+        <details>
+        <summary>How can I make my home more fire-safe?</summary>
+            <p>Install smoke detectors on every level, create and practice an escape plan, keep fire extinguishers in key areas (kitchen, garage), maintain electrical systems, clean dryer vents regularly, and store flammable materials safely.</p>
+        </details>   
+        </section>
+
+        <section class="card">
+          <h2>Emergency Response</h2>
+           <details>
+            <summary>What should I do if there's a fire in my home?</summary>
+        <p>GET OUT immediately and call 112. Don't try to fight large fires yourself. If trapped, close doors between you and the fire, seal cracks with cloth, and signal for help from a window. Crawl low under smoke.</p>
+        </details>
+
+        <details>
+        <summary>When should I call the fire department?</summary>
+            <p>
+            Call 112 immediately for any fire that you cannot quickly extinguish with a small fire extinguisher, any fire involving electrical equipment, gas, or chemicals, or if you smell gas or suspect a gas leak.</p>
+        </details>
+        <details>
+        <summary>How do I use a fire extinguisher properly?</summary>
+            <p>Remember PASS: Pull the pin, Aim at the base of the fire, Squeeze the handle, Sweep from side to side. Only use on small fires. If the fire doesn't go out quickly, evacuate immediately.</p>
+        </details>   
+        </section>
+
+        <section class="card">
+          <h2>Community Safety</h2>
+          <details>
+            <summary>How can I report a fire hazard in my neighborhood?</summary>
+        <p>Use our fire map feature to report hazards, contact your local fire department directly, or call the non-emergency number. Provide specific location details and describe the hazard clearly.</p>
+        </details>
+
+        <details>
+        <summary>What should I do if I see a wildfire starting?</summary>
+            <p>Call 112 immediately with the exact location. Don't attempt to fight it yourself. If you're in danger, evacuate immediately. Follow local evacuation orders and routes.</p>
+        </details>
+        <details>
+        <summary>How can I get involved in community fire safety?</summary>
+            <p>Join our platform to share safety tips, attend local fire department events, volunteer for community safety programs, and help educate neighbors about fire prevention.</p>
+        </details> 
+        </section>
+
+        <section class="card">
+          <h2>Platform Help</h2>
+         <details>
+            <summary>How can I report a fire hazard in my neighborhood?</summary>
+        <p>Use our fire map feature to report hazards, contact your local fire department directly, or call the non-emergency number. Provide specific location details and describe the hazard clearly.</p>
+        </details>
+
+        <details>
+        <summary>Who can see my posts and reports?</summary>
+            <p>Go to the Fire Map page, click "Report Incident", fill out the form with incident details, location, and severity. Firefighters and safety experts will review and respond to reports.</p>
+        </details>
+        <details>
+        <summary>How do I change my region or profile information?</summary>
+            <p>Go to Settings in your profile menu. You can update your region, contact information, and notification preferences. Region changes may require verification.</p>
+        </details> 
+        </section>
+
+      </main>
     </div>
-
-    <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-      <div class="faq-question">
-         Is this platform official?
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="faq-answer">
-        While community-driven, the platform works in collaboration with certified firefighters and emergency services in several regions.
-      </div>
-    </div>
-
-  </section>
-
-
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="../JS/FAQ.js"></script>
+  </div>
+<script src="../JS/FAQ.js"></script>
 </body>
 </html>
