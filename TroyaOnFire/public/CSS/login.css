@@ -17,8 +17,8 @@ body{
     position: relative;
     width: 750px;
     height: 450px;
-    border: 2px solid #fb6341;
-    box-shadow: 0 0 25px #fb6341;
+    border: 2px solid #bf1818;
+    box-shadow: 0 0 25px #bf1818;
     overflow: hidden;
 }
 .container .form-box{
@@ -93,7 +93,7 @@ body{
 } 
 .input-box input:focus,
 .input-box input:valid{
-    border-bottom: 2px solid #fb6341;
+    border-bottom: 2px solid #bf1818;
 }
 .input-box label{
     position: absolute;
@@ -107,7 +107,7 @@ body{
 .input-box input:focus ~ label,
 .input-box input:valid ~ label{
     top: -5px;
-    color: #fb6341;
+    color: #bf1818;
 }
 .input-box i{
     position: absolute;
@@ -119,7 +119,7 @@ body{
 }
 .input-box input:focus ~ i,
 .input-box input:valid ~ i{
-    color: #fb6341;
+    color: #bf1818;
 }
 .btn{
     position: relative;
@@ -130,7 +130,7 @@ body{
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    border: 2px solid #fb6341;
+    border: 2px solid #bf1818;
     overflow: hidden;
     z-index: 1;
 }
@@ -139,7 +139,7 @@ body{
     position: absolute;
     height: 300%;
     width: 100%;
-    background: linear-gradient(#25252b, #fb6341, #25252b, #fb6341);
+    background: linear-gradient(#25252b, #bf1818, #25252b, #bf1818);
     top: -100%;
     left: 0;
     z-index: -1;
@@ -156,7 +156,7 @@ body{
 }
 .regi-link a{
     text-decoration: none;
-    color:#fb6341;
+    color:#bf1818;
     font-weight: 600;
 }
 .regi-link a:hover{
@@ -225,7 +225,7 @@ body{
     top: -5px;
     height: 600px;
     width: 850px;
-    background: linear-gradient(45deg, #25252b, #fb6341);
+    background: linear-gradient(45deg, #25252b, #bf1818);
     transform: rotate(10deg) skewY(40deg);
     transform-origin: bottom right;
     transition: 1.5s ease;
@@ -243,7 +243,7 @@ body{
     height: 700px;
     width: 850px;
     background: #25252b;
-    border-top: 3px solid #fb6341;
+    border-top: 3px solid #bf1818;
     transform: rotate(0deg) skewY(0deg);
     transform-origin: bottom left;
     transition: 1.5s ease;
