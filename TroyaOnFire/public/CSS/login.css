@@ -158,6 +158,13 @@ body {
   font-size: 14px;
 }
 
+.input-box select:not([value=""]) ~ label,
+.input-box select.has-value ~ label {
+  top: -5px;
+  color: #bf1818;
+  font-size: 14px;
+}
+
 .input-box i {
   position: absolute;
   top: 50%;
@@ -372,4 +379,13 @@ body {
     width: 100%;
     margin-top: 15px;
   }
+}
+
+.container.active .form-box.Register {
+  z-index: 10;
+  pointer-events: all;
+}
+
+.container.active .form-box.Login {
+  pointer-events: none;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TroyaOnFire | SignIn</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../CSS/login.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
@@ -26,10 +26,19 @@
                     <label for="login-password">Password</label>
                     <i class='bx bxs-lock-alt'></i> 
                 </div>
-                <div class="input-box animation" style="--D:3; --S:24">
+                
+                <!-- Remember Me Checkbox -->
+                <div class="checkbox-container animation" style="--D:3; --S:24">
+                    <input type="checkbox" id="remember-me" name="rememberMe" checked>
+                    <label for="remember-me" class="checkbox-label">
+                        Remember me for 24 hours
+                    </label>
+                </div>
+                
+                <div class="input-box animation" style="--D:4; --S:25">
                     <button class="btn" type="submit">Login</button>
                 </div>
-                <div class="regi-link animation" style="--D:4; --S:25">
+                <div class="regi-link animation" style="--D:5; --S:26">
                     <p>Don't have an account? <a href="#" class="SignUpLink">SignUp</a></p>
                 </div>
             </form>
@@ -138,6 +147,6 @@
             emailjs.init("AajpVPu832qB6cqgy"); 
         })();
     </script>
-    <script src="login.js"></script>
+    <script src="../JS/login.js"></script>
 </body>
 </html>
