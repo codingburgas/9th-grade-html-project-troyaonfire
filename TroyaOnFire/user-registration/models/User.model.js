@@ -5,30 +5,30 @@ const UserSchema = new Schema(
   {
     firstName: {
       type: String,
+      required: true,
     },
     lastName: {
       type: String,
-    },
-    username: {
-      type: String,
+      required: true,
     },
     email: {
       type: String,
+      required: true,
     },
     password: {
       type: String,
+      required: true,
+    },
+    workingStatus:{
+      type: String,
+      required: true,
     },
     region: {
       type: String,
-    },
-    sessionToken: {
-      type: String,
-    },
-    phoneNumber: {
-      type: String,
-    },
+      required: true,
+    }
   },
-  { collection: "users" }
+  { timestamps: true, collection: 'users' } // Specify collection name
 );
 
 const User = mongoose.model("user", UserSchema);

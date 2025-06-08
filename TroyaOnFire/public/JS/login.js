@@ -166,11 +166,11 @@ registerForm.addEventListener("submit", function (e) {
 
   const formData = new FormData(this)
   const userData = {
-    firstName: formData.get("firstname"),
-    lastName: formData.get("lastname"),
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
     email: formData.get("email"),
     region: formData.get("region"),
-    role: formData.get("role"),
+    workingStatus: formData.get("role"),
     password: formData.get("password"),
     confirmPassword: formData.get("confirmPassword"),
     agreeToTerms: formData.get("agreeToTerms"),
@@ -245,7 +245,8 @@ loginForm.addEventListener("submit", function (e) {
       setLoginWithExpiry(user, rememberMe)
 
       // Redirect to homepage
-      window.location.href = "../index.html"
+      location.href = "../HTML/profile.html"
+
     })
     .catch((err) => {
       alert("Invalid credentials")

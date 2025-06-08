@@ -1,13 +1,25 @@
 const express = require('express');
 const fs = require('fs').promises;
+const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
+const User = require('./models/User.model'); 
+const News = require('./models/News.model'); 
 
 const app = express();
 const saltRounds = 10;
 const DATA_FILE = path.join(__dirname, 'users.json');
+
+// MongoDB connection setup (not used in this example, but included for completeness)
+const dbURI = 'mongodb+srv://ulvie1m:iaOCQGT4cWSNFdkk@cluster0.wc6l44v.mongodb.net/TroyaOnFire?retryWrites=true&w=majority&appName=Cluster0';
+mongoose.connect(dbURI)
+.then((result) => {app.listen(3000, () => {
+  console.log('🚀 Server running on http://localhost:3000');
+});
+})
+.catch((err) => console.log(err));
 
 
 app.use(express.static(path.join(__dirname, '../public')));
@@ -17,22 +29,46 @@ app.use(bodyParser.json());
 
 // REGISTER
 app.post('/register', async (req, res) => {
-  const { email, password, country } = req.body;
+  // const { firstName, lastName, email, password, workingStatus, region } = req.body;
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
+  const email = req.body.email;
+  const password = req.body.password;
+  const workingStatus = req.body.workingStatus;
+  const region = req.body.region;
 
-  try {
-    const data = await fs.readFile(DATA_FILE, 'utf8');
-    const users = JSON.parse(data);
+  try{
+    User.find({ email: email })
+    .then((result) => {
+      if (result.length > 0) {
+        return res.status(400).send('User already exists');
+      }
 
-    const existingUser = users.find(user => user.email === email);
-    if (existingUser) return res.status(400).send('User already exists');
+      bcrypt.hash(password, saltRounds)
+      .then((hashedPassword) => {
+        const newUser = new User({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          password: hashedPassword,
+          workingStatus: workingStatus,
+          region: region
+        });
 
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const newUser = { email, password: hashedPassword, country };
-    users.push(newUser);
-
-    await fs.writeFile(DATA_FILE, JSON.stringify(users, null, 2));
-    res.send('Registered successfully');
-  } catch (err) {
+        newUser.save()
+        .then(() => res.send('Registered successfully'))
+        .catch(err => {
+          console.error(err);
+          res.status(500).send('Server error');
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send('Server error');
+      });
+    });
+  }
+  catch (err) {
     console.error(err);
     res.status(500).send('Server error');
   }
@@ -43,26 +79,48 @@ app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const data = await fs.readFile(DATA_FILE, 'utf8');
-    const users = JSON.parse(data);
+    User.find({ email: email })
+    .then((result) => {
+      if (result.length === 0) {
+        return res.status(401).send('Invalid email or password');
+      }
 
-    const user = users.find(u => u.email === email);
-    if (!user) return res.status(401).send('Invalid email or password');
+      const user = result[0];
+      bcrypt.compare(password, user.password)
+      .then((isMatch) => {
+        if (!isMatch) {
+          return res.status(401).send('Invalid email or password');
+        }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(401).send('Invalid email or password');
-
-    // Don't send the password back
-    res.json({ email: user.email, country: user.country });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Server error');
+        // Don't send the password back
+        res.json({ email: user.email, firstName: user.firstName, lastName: user.lastName, workingStatus: user.workingStatus, region: user.region });
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send('Server error');
+      });
+    })
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send('Server error');
+    
   }
 });
 
+app.post('/createNewsPost', (req, res) => {
+  const { postType, postTitle, description, email } = req.body;
+  const newPost = new News({
+          email: email,
+          postType: postType,
+          postTitle: postTitle,
+          postDescription: description
+        });
 
-
-
-app.listen(3000, () => {
-  console.log('🚀 Server running on http://localhost:3000');
-});
+        newPost.save()
+        .then(() => res.send({ success: true, message: 'Post created successfully' }))
+        .catch(err => {
+          console.error(err);
+          res.status(500).send('Server error');
+        });
+})
+  

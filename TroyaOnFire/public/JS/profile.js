@@ -148,3 +148,44 @@ window.addEventListener('resize', () => {
     document.getElementById('menuToggle').classList.remove('active');
   }
 });
+
+document.querySelector(".share-post").addEventListener("click", function() {
+  const postType = document.querySelector(".share-post-select").value;
+  const postTitle = document.querySelector(".share-post-title").value;
+  const postContent = document.querySelector(".share-post-description").value;
+  
+  console.log(postType, postTitle, postContent, JSON.parse(localStorage.getItem('user')).email);
+  if( postType && postTitle && postContent) {
+    fetch('/createNewsPost', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        postType: postType,
+        postTitle: postTitle,
+        description: postContent,
+        email: JSON.parse(localStorage.getItem('user')).email // Pulling the email from the locally stored user data
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert('Post shared successfully!');
+        // Optionally, clear the form fields
+        document.querySelector(".share-post-select").value = '';
+        document.querySelector(".share-post-title").value = '';
+        document.querySelector(".share-post-description").value = '';
+      } else {
+        alert('Error sharing post: ' + data.message);
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('An error occurred while sharing the post.');
+    });
+  }
+  else {
+    alert('Please fill in all fields before sharing the post.');
+  }
+})
