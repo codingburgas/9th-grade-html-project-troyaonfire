@@ -28,5 +28,20 @@
     "email": "what@gmail.com",
     "password": "$2b$10$r7xlH/21ZmMO4r/gdaRI.O40fZwHti03MZH0N1lcmhMjBk7IpK2pq",
     "country": "France"
+  },
+  {
+    "email": "hello123@gmail.com",
+    "password": "$2b$10$XlNxUv0s8xU3asLKrtLHeeJVCDHM3E/QzvnHjO8.EGWi1l66Uybvy",
+    "country": "Bulgaria"
+  },
+  {
+    "email": "justtroya@gmail.com",
+    "password": "$2b$10$fTJKo.qtETT9G3L/LYpQ6uopkGPenLPmMCHIYZmJSxOVjnuQ6syVC",
+    "country": "Greece"
+  },
+  {
+    "email": "sharathebest@gmail.com",
+    "password": "$2b$10$TerweZ3lywQDqMoNghy0U.gkJf/yKZx.vCB3VcSOs0DrxH2pXZc36",
+    "country": "Poland"
   }
 ]

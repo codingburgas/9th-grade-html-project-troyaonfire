@@ -9,8 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="../CSS/map.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
-   
 </head>
 <body>
 
@@ -18,7 +16,7 @@
   <nav class="sidebar" id="sidebar">
     <span class="sidebar-heading">Dashboard</span>
     <ul>
-      <li><a href="map.html">Fire Reports</a></li>
+      <li><a href="map.html" class="active">Fire Reports</a></li>
       <li><a href="newspage.html">News & Events</a></li>
       <li><a href="#">Organization</a></li>
       <li><a href="FAQ.html">FAQ</a></li>
@@ -34,7 +32,7 @@
         <span></span>
     </div>
     
-    <a href="../index.html">class="site-title">Troya<span class="highlight">OnFire</span></h1></a>
+    <a href="../index.html" class="site-title">Troya<span class="highlight">OnFire</span></a>
 
     <div class="nav-actions">
         <div class="search-container" id="searchContainer">
@@ -54,15 +52,16 @@
         </button>
         <a href="profile.html" class="icon-button" aria-label="User Profile">
             <i class="fa-regular fa-user fa-sm" style="color: #ffffff;"></i>
-        </button></a>
+        </a>
     </div>
   </header>
+
   <!-- Main Content -->
   <div class="main-content">
     <!-- Left Panel -->
     <div class="left-panel">
       <!-- Fire Alert Button -->
-      <button class="fire-alert-btn">Report Fire Alert !</button>
+      <button class="fire-alert-btn" id="fireAlertBtn"><i class="fas fa-fire"></i> Report Fire Alert !</button>
 
       <!-- Search & Filter -->
       <div class="search-filter">
@@ -70,28 +69,28 @@
         
         <div class="filter-group">
           <label>Search Location</label>
-          <input type="text" placeholder="Enter address or region">
+          <input type="text" id="mapSearch" placeholder="Enter address or region">
         </div>
 
         <div class="filter-group">
           <label for="incidentTypeFilter">Incident Type</label>
           <select id="incidentTypeFilter">
-            <option>All incidents</option>
-            <option>Kitchen Fire</option>
-            <option>Forest Fire</option>
-            <option>Building Fire</option>
-            <option>Vehicle Fire</option>
+            <option value="all">All incidents</option>
+            <option value="kitchen">Kitchen Fire</option>
+            <option value="forest">Forest Fire</option>
+            <option value="building">Building Fire</option>
+            <option value="vehicle">Vehicle Fire</option>
           </select>
         </div>
 
         <div class="filter-group">
           <label for="severityFilter">Severity</label>
-          <select id="severityFilter" name="severityFilter">
-            <option>All severities</option>
-            <option>Low</option>
-            <option>Medium</option>
-            <option>High</option>
-            <option>Critical</option>
+          <select id="severityFilter">
+            <option value="all">All severities</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="critical">Critical</option>
           </select>
         </div>
       </div>
@@ -129,86 +128,68 @@
       <div class="recent-incidents">
         <h3>Recent Incidents</h3>
         <p>Latest Fire/Safety Reports</p>
-
-        <div class="incident-item">
-          <div class="incident-icon kitchen-fire"></div>
-          <div class="incident-details">
-            <div class="incident-title">Kitchen Fire - Vitosha Boulevard</div>
-            <div class="incident-location">Kitchen Fire - Vitosha Boulevard</div>
-          </div>
-          <div class="incident-time">2 hours ago</div>
-        </div>
-
-        <div class="incident-item">
-          <div class="incident-icon kitchen-fire"></div>
-          <div class="incident-details">
-            <div class="incident-title">Kitchen Fire - Vitosha Boulevard</div>
-            <div class="incident-location">Kitchen Fire - Vitosha Boulevard</div>
-          </div>
-          <div class="incident-time">1 day ago</div>
-        </div>
-
-        <div class="incident-item">
-          <div class="incident-icon fire-station"></div>
-          <div class="incident-details">
-            <div class="incident-title">Kitchen Fire - Vitosha Boulevard</div>
-            <div class="incident-location">Kitchen Fire - Vitosha Boulevard</div>
-          </div>
-          <div class="incident-time">3 days ago</div>
-        </div>
+        <div id="incidentsList"></div>
       </div>
 
       <!-- Report New Incident -->
-      <div class="report-incident">
+      <div class="report-incident" id="reportIncidentForm" style="display: none;">
         <h3>Report New Incident</h3>
         <p>Help us improve fire safety by reporting fire hazards or incidents</p>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label>Incident Type</label>
-            <select id="incidentType">
-              <option>All incidents</option>
-              <option>Kitchen Fire</option>
-              <option>Forest Fire</option>
-              <option>Building Fire</option>
-              <option>Vehicle Fire</option>
-            </select>
+        <form id="incidentForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Incident Type</label>
+              <select id="incidentType" required>
+                <option value="">Select an incident</option>
+                <option value="kitchen">Kitchen Fire</option>
+                <option value="forest">Forest Fire</option>
+                <option value="building">Building Fire</option>
+                <option value="vehicle">Vehicle Fire</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Severity</label>
+              <select id="severity" required>
+                <option value="">Select severity</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="critical">Critical</option>
+              </select>
+            </div>
           </div>
+
           <div class="form-group">
-            <label>Severity</label>
-            <select id="severity">
-              <option>All severities</option>
-              <option>Low</option>
-              <option>Medium</option>
-              <option>High</option>
-              <option>Critical</option>
-            </select>
+              <label>Location</label>
+              <div class="location-input-group">
+                <input type="text" id="location" placeholder="Enter exact address or click on map" required>
+                <button type="button" id="clearLocationBtn" class="clear-btn">
+                <i class="fas fa-times"></i>
+              </button>
+              </div>
+                <input type="hidden" id="latitude">
+               <input type="hidden" id="longitude">
           </div>
-        </div>
 
-        <div class="form-group">
-          <label>Location</label>
-          <input type="text" id="location" placeholder="Enter exact address or click on map">
-        </div>
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" id="title" placeholder="Add a title for this incident" required>
+          </div>
 
-        <div class="form-group">
-          <label>Title</label>
-          <input type="text" id="title" placeholder="Add a title for this incident">
-        </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="description" placeholder="Provide detailed description of the incident or hazard" required></textarea>
+          </div>
 
-        <div class="form-group">
-          <label>Description</label>
-          <textarea id="description" placeholder="Provide detailed description of the incident or hazard"></textarea>
-        </div>
-
-        <div class="form-buttons">
-          <button class="submit-btn" onclick="submitReport()">Submit Report</button>
-          <button class="cancel-btn" onclick="cancelReport()">Cancel</button>
-        </div>
+          <div class="form-buttons">
+            <button type="submit" class="submit-btn">Submit Report</button>
+            <button type="button" class="cancel-btn" id="cancelReportBtn">Cancel</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-
 
   <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
