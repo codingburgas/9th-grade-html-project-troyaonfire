@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community</title>
+  <title>Community - TroyaOnFire</title>
   <link rel="stylesheet" href="../CSS/community.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -11,11 +11,11 @@
   <nav class="sidebar" id="sidebar">
     <span class="sidebar-heading">Dashboard</span>
     <ul>
-      <li><a href="map.html">Fire Reports</a></li>
-      <li><a href="newspage.html">News & Events</a></li>
-      <li><a href="#">Organization</a></li>
-      <li><a href="FAQ.html">FAQ</a></li>
-      <li><a href="#">Settings</a></li>
+      <li><a href="map.html"><i class="fas fa-fire"></i> Fire Reports</a></li>
+      <li><a href="newspage.html"><i class="fas fa-newspaper"></i> News & Events</a></li>
+      <li><a href="#"><i class="fas fa-users"></i> Organization</a></li>
+      <li><a href="FAQ.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
     </ul>
   </nav>
 
@@ -26,13 +26,13 @@
       <span></span>
     </div>
 
-    <a href="../index.html"><h1 class="site-title">Troya<span class="highlight">OnFire</span></h1></a>
+    <a href="../index.html" class="site-title">Troya<span class="highlight">OnFire</span></a>
 
     <div class="nav-actions">
       <div class="search-container" id="searchContainer">
-        <input type="text" id="searchInput" placeholder="Search...">
+        <input type="text" id="searchInput" placeholder="Search community...">
         <button class="icon-button" id="searchBtn" aria-label="Search">
-          <i class="fa-solid fa-magnifying-glass fa-sm" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
 
@@ -42,11 +42,11 @@
       </label>
 
       <button class="icon-button" id="addPostBtn" aria-label="Add">
-        <i class="fa-solid fa-plus fa-xs" style="color: #ffffff;"></i>
+        <i class="fa-solid fa-plus"></i>
       </button>
 
       <a href="profile.html" class="icon-button" aria-label="User Profile">
-        <i class="fa-regular fa-user fa-sm" style="color: #ffffff;"></i>
+        <i class="fa-regular fa-user"></i>
       </a>
     </div>
   </header>
@@ -54,91 +54,346 @@
   <div class="main-container">
     <div class="top-section">
       <div class="search-box">
-        <h3>Search fire department staff</h3>
+        <h3><i class="fas fa-search"></i> Search Fire Department Staff</h3>
         <label>Search for fire department</label>
-        <input type="text" placeholder="Enter address, region or name">
+        <input type="text" id="departmentSearch" placeholder="Enter address, region or name">
+        
         <label>Search by firefighter name</label>
-        <input type="text" placeholder="Enter name here">
+        <input type="text" id="nameSearch" placeholder="Enter name here">
+        
         <label for="staff-type-select">Staff type</label>
         <select id="staff-type-select">
-          <option>All position types</option>
+          <option value="">All position types</option>
+          <option value="Fire Chief">Fire Chief</option>
+          <option value="Captain">Captain</option>
+          <option value="Lieutenant">Lieutenant</option>
+          <option value="Firefighter">Firefighter</option>
+          <option value="Paramedic">Paramedic</option>
+          <option value="Safety Expert">Safety Expert</option>
+          <option value="Fire Inspector">Fire Inspector</option>
         </select>
+        
         <label for="country-select">Choose country</label>
         <select id="country-select">
-          <option>All countries</option>
+          <option value="">All countries</option>
+          <option value="United States">United States</option>
+          <option value="Canada">Canada</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="Australia">Australia</option>
+          <option value="Germany">Germany</option>
+          <option value="France">France</option>
+          <option value="Japan">Japan</option>
+          <option value="Brazil">Brazil</option>
         </select>
       </div>
 
       <div class="community-stats">
-        <h3>Community Stats</h3>
-        <p>Total members<br><strong>1,247</strong></p>
-        <p>Firefighters<br><strong>91</strong></p>
-        <p>Safety Experts<br><strong>28</strong></p>
+        <h3><i class="fas fa-chart-bar"></i> Community Stats</h3>
+        <p>Total members <strong class="stat-number" id="totalMembers">1,247</strong></p>
+        <p>Firefighters <strong class="stat-number" id="firefighters">91</strong></p>
+        <p>Safety Experts <strong class="stat-number" id="safetyExperts">28</strong></p>
+        <p>Active Today <strong class="stat-number" id="activeToday">156</strong></p>
       </div>
     </div>
 
-    <div class="card-grid">
-      <div class="card">
-        <div class="avatar"></div>
-        <div class="name">Name Surname</div>
-        <div class="meta">Staff position</div>
-        <div class="meta">Region (City, Country)</div>
+    <div class="results-counter" id="resultsCounter">Showing 8 members</div>
+
+    <div class="card-grid" id="cardGrid">
+      <div class="card" data-name="John Smith" data-position="Fire Captain" data-location="New York, United States" data-country="United States">
+        <div class="avatar">👨‍🚒</div>
+        <div class="name">John Smith</div>
+        <div class="meta">Fire Captain</div>
+        <div class="meta"><span class="country-flag">🇺🇸</span>New York, United States</div>
         <div class="stats">
-          0 Posts<br>0 Likes<br>0 months ago Joined
+          12 Posts<br>45 Likes<br>2 years ago Joined
         </div>
         <button class="connect-btn">Connect</button>
       </div>
-      <div class="card">
-        <div class="avatar"></div>
-        <div class="name">Name Surname</div>
-        <div class="meta">Staff position</div>
-        <div class="meta">Region (City, Country)</div>
+      
+      <div class="card" data-name="Sarah Johnson" data-position="Paramedic" data-location="Toronto, Canada" data-country="Canada">
+        <div class="avatar">👩‍⚕️</div>
+        <div class="name">Sarah Johnson</div>
+        <div class="meta">Paramedic</div>
+        <div class="meta"><span class="country-flag">🇨🇦</span>Toronto, Canada</div>
         <div class="stats">
-          0 Posts<br>0 Likes<br>0 months ago Joined
+          8 Posts<br>32 Likes<br>1 year ago Joined
         </div>
         <button class="connect-btn">Connect</button>
       </div>
-      <div class="card">
-        <div class="avatar"></div>
-        <div class="name">Name Surname</div>
-        <div class="meta">Staff position</div>
-        <div class="meta">Region (City, Country)</div>
+      
+      <div class="card" data-name="Mike Davis" data-position="Fire Chief" data-location="London, United Kingdom" data-country="United Kingdom">
+        <div class="avatar">👨‍🚒</div>
+        <div class="name">Mike Davis</div>
+        <div class="meta">Fire Chief</div>
+        <div class="meta"><span class="country-flag">🇬🇧</span>London, United Kingdom</div>
         <div class="stats">
-          0 Posts<br>0 Likes<br>0 months ago Joined
+          25 Posts<br>89 Likes<br>3 years ago Joined
         </div>
         <button class="connect-btn">Connect</button>
       </div>
-      <div class="card">
-        <div class="avatar"></div>
-        <div class="name">Name Surname</div>
-        <div class="meta">Staff position</div>
-        <div class="meta">Region (City, Country)</div>
+      
+      <div class="card" data-name="Emily Wilson" data-position="Safety Expert" data-location="Sydney, Australia" data-country="Australia">
+        <div class="avatar">👩‍🚒</div>
+        <div class="name">Emily Wilson</div>
+        <div class="meta">Safety Expert</div>
+        <div class="meta"><span class="country-flag">🇦🇺</span>Sydney, Australia</div>
         <div class="stats">
-          0 Posts<br>0 Likes<br>0 months ago Joined
+          15 Posts<br>67 Likes<br>18 months ago Joined
         </div>
         <button class="connect-btn">Connect</button>
       </div>
-      <div class="card">
-        <div class="avatar"></div>
-        <div class="name">Name Surname</div>
-        <div class="meta">Staff position</div>
-        <div class="meta">Region (City, Country)</div>
+      
+      <div class="card" data-name="Hans Mueller" data-position="Lieutenant" data-location="Berlin, Germany" data-country="Germany">
+        <div class="avatar">👨‍🚒</div>
+        <div class="name">Hans Mueller</div>
+        <div class="meta">Lieutenant</div>
+        <div class="meta"><span class="country-flag">🇩🇪</span>Berlin, Germany</div>
         <div class="stats">
-          0 Posts<br>0 Likes<br>0 months ago Joined
+          6 Posts<br>23 Likes<br>8 months ago Joined
         </div>
         <button class="connect-btn">Connect</button>
       </div>
-      <div class="card">
-        <div class="avatar"></div>
-        <div class="name">Name Surname</div>
-        <div class="meta">Staff position</div>
-        <div class="meta">Region (City, Country)</div>
+      
+      <div class="card" data-name="Marie Dubois" data-position="Firefighter" data-location="Paris, France" data-country="France">
+        <div class="avatar">👩‍🚒</div>
+        <div class="name">Marie Dubois</div>
+        <div class="meta">Firefighter</div>
+        <div class="meta"><span class="country-flag">🇫🇷</span>Paris, France</div>
         <div class="stats">
-          0 Posts<br>0 Likes<br>0 months ago Joined
+          9 Posts<br>41 Likes<br>14 months ago Joined
         </div>
         <button class="connect-btn">Connect</button>
+      </div>
+
+      <div class="card" data-name="Hiroshi Tanaka" data-position="Fire Inspector" data-location="Tokyo, Japan" data-country="Japan">
+        <div class="avatar">👨‍🚒</div>
+        <div class="name">Hiroshi Tanaka</div>
+        <div class="meta">Fire Inspector</div>
+        <div class="meta"><span class="country-flag">🇯🇵</span>Tokyo, Japan</div>
+        <div class="stats">
+          18 Posts<br>72 Likes<br>2 years ago Joined
+        </div>
+        <button class="connect-btn">Connect</button>
+      </div>
+
+      <div class="card" data-name="Ana Silva" data-position="Safety Expert" data-location="São Paulo, Brazil" data-country="Brazil">
+        <div class="avatar">👩‍🚒</div>
+        <div class="name">Ana Silva</div>
+        <div class="meta">Safety Expert</div>
+        <div class="meta"><span class="country-flag">🇧🇷</span>São Paulo, Brazil</div>
+        <div class="stats">
+          11 Posts<br>38 Likes<br>10 months ago Joined
+        </div>
+        <button class="connect-btn">Connect</button>
+      </div>
+
+      <div class="no-results hidden" id="noResults">
+        <i class="fas fa-search"></i>
+        <div>No members found matching your search criteria.</div>
+        <div style="margin-top: 0.5rem; font-size: 0.9rem;">Try adjusting your filters or search terms.</div>
       </div>
     </div>
   </div>
+
+  <script>
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Check for saved theme preference or default to dark mode
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'light') {
+      body.classList.add('light-theme');
+      themeToggle.checked = true;
+    }
+
+    themeToggle.addEventListener('change', function() {
+      if (this.checked) {
+        body.classList.add('light-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.classList.remove('light-theme');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Sidebar toggle functionality
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const sidebar = document.getElementById('sidebar');
+      const menuIcon = document.getElementById('menuToggle');
+      
+      sidebar.classList.toggle('open');
+      menuIcon.classList.toggle('active');
+    });
+
+    // Search toggle functionality
+    document.getElementById('searchBtn').addEventListener('click', function() {
+      const searchContainer = document.getElementById('searchContainer');
+      const searchInput = document.getElementById('searchInput');
+      
+      searchContainer.classList.toggle('expanded');
+      
+      if (searchContainer.classList.contains('expanded')) {
+        searchInput.focus();
+      }
+    });
+
+    // Close sidebar when clicking outside
+    document.addEventListener('click', function(event) {
+      const sidebar = document.getElementById('sidebar');
+      const menuToggle = document.getElementById('menuToggle');
+      
+      if (!sidebar.contains(event.target) && !menuToggle.contains(event.target)) {
+        sidebar.classList.remove('open');
+        menuToggle.classList.remove('active');
+      }
+    });
+
+    // Search Functionality
+    const searchInputs = {
+      header: document.getElementById('searchInput'),
+      department: document.getElementById('departmentSearch'),
+      name: document.getElementById('nameSearch'),
+      position: document.getElementById('staff-type-select'),
+      country: document.getElementById('country-select')
+    };
+
+    const cards = document.querySelectorAll('.card:not(.no-results)');
+    const noResults = document.getElementById('noResults');
+    const resultsCounter = document.getElementById('resultsCounter');
+
+    function filterCards() {
+      const filters = {
+        header: searchInputs.header.value.toLowerCase().trim(),
+        department: searchInputs.department.value.toLowerCase().trim(),
+        name: searchInputs.name.value.toLowerCase().trim(),
+        position: searchInputs.position.value.toLowerCase().trim(),
+        country: searchInputs.country.value.toLowerCase().trim()
+      };
+
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardData = {
+          name: card.dataset.name.toLowerCase(),
+          position: card.dataset.position.toLowerCase(),
+          location: card.dataset.location.toLowerCase(),
+          country: card.dataset.country.toLowerCase()
+        };
+
+        let isVisible = true;
+
+        // Header search (searches across all fields)
+        if (filters.header) {
+          isVisible = isVisible && (
+            cardData.name.includes(filters.header) ||
+            cardData.position.includes(filters.header) ||
+            cardData.location.includes(filters.header) ||
+            cardData.country.includes(filters.header)
+          );
+        }
+
+        // Department/Location search
+        if (filters.department) {
+          isVisible = isVisible && cardData.location.includes(filters.department);
+        }
+
+        // Name search
+        if (filters.name) {
+          isVisible = isVisible && cardData.name.includes(filters.name);
+        }
+
+        // Position filter
+        if (filters.position) {
+          isVisible = isVisible && cardData.position.includes(filters.position);
+        }
+
+        // Country filter
+        if (filters.country) {
+          isVisible = isVisible && cardData.country.includes(filters.country);
+        }
+
+        if (isVisible) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Update results counter
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+        resultsCounter.textContent = 'No members found';
+      } else {
+        noResults.classList.add('hidden');
+        resultsCounter.textContent = `Showing ${visibleCount} member${visibleCount !== 1 ? 's' : ''}`;
+      }
+    }
+
+    // Add event listeners to all search inputs
+    Object.values(searchInputs).forEach(input => {
+      input.addEventListener('input', filterCards);
+      input.addEventListener('change', filterCards);
+    });
+
+    // Header search also filters when expanded
+    searchInputs.header.addEventListener('input', function() {
+      if (this.value.trim()) {
+        // Clear other filters when using header search
+        searchInputs.department.value = '';
+        searchInputs.name.value = '';
+        searchInputs.position.value = '';
+        searchInputs.country.value = '';
+      }
+      filterCards();
+    });
+
+    // Animated Community Stats
+    const stats = {
+      totalMembers: { element: document.getElementById('totalMembers'), current: 1247, target: 1247 },
+      firefighters: { element: document.getElementById('firefighters'), current: 91, target: 91 },
+      safetyExperts: { element: document.getElementById('safetyExperts'), current: 28, target: 28 },
+      activeToday: { element: document.getElementById('activeToday'), current: 156, target: 156 }
+    };
+
+    function updateStats() {
+      Object.keys(stats).forEach(key => {
+        const stat = stats[key];
+        const change = Math.floor(Math.random() * 21) - 10; // Random change between -10 and +10
+        const newValue = Math.max(0, stat.current + change);
+        
+        if (newValue !== stat.current) {
+          const isIncrease = newValue > stat.current;
+          stat.current = newValue;
+          stat.element.textContent = stat.current.toLocaleString();
+          
+          // Remove existing classes
+          stat.element.classList.remove('stat-increase', 'stat-decrease');
+          
+          // Add appropriate class for animation
+          if (isIncrease) {
+            stat.element.classList.add('stat-increase');
+          } else {
+            stat.element.classList.add('stat-decrease');
+          }
+          
+          // Remove class after animation
+          setTimeout(() => {
+            stat.element.classList.remove('stat-increase', 'stat-decrease');
+          }, 500);
+        }
+      });
+    }
+
+    // Update stats every 3 seconds
+    setInterval(updateStats, 3000);
+
+    // Initial random update after 2 seconds
+    setTimeout(updateStats, 2000);
+
+    // Initialize results counter
+    filterCards();
+  </script>
 </body>
 </html>
