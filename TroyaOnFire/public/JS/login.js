@@ -5,6 +5,19 @@ const registerForm = document.getElementById("register-form")
 const loginForm = document.getElementById("login-form")
 const emailjs = window.emailjs
 
+// Modal elements
+const termsModal = document.getElementById("terms-modal")
+const privacyModal = document.getElementById("privacy-modal")
+const termsLink = document.getElementById("terms-link")
+const privacyLink = document.getElementById("privacy-link")
+const termsClose = document.getElementById("terms-close")
+const privacyClose = document.getElementById("privacy-close")
+const termsAccept = document.getElementById("terms-accept")
+const termsDecline = document.getElementById("terms-decline")
+const privacyAccept = document.getElementById("privacy-accept")
+const privacyCloseBtn = document.getElementById("privacy-close-btn")
+const termsCheckbox = document.getElementById("terms-checkbox")
+
 // Check if user is already logged in when page loads
 document.addEventListener("DOMContentLoaded", () => {
   checkExistingLogin()
@@ -68,6 +81,76 @@ function setLoginWithExpiry(userData, rememberMe) {
   localStorage.setItem("userRole", userData.role)
   localStorage.setItem("loginExpiry", expiryTime.toString())
 }
+
+// Modal Functions
+function openModal(modal) {
+  modal.classList.add("active")
+  document.body.style.overflow = "hidden"
+}
+
+function closeModal(modal) {
+  modal.classList.remove("active")
+  document.body.style.overflow = "auto"
+}
+
+// Terms of Service Modal Events
+termsLink.addEventListener("click", (e) => {
+  e.preventDefault()
+  openModal(termsModal)
+})
+
+termsClose.addEventListener("click", () => {
+  closeModal(termsModal)
+})
+
+termsAccept.addEventListener("click", () => {
+  termsCheckbox.checked = true
+  closeModal(termsModal)
+})
+
+termsDecline.addEventListener("click", () => {
+  termsCheckbox.checked = false
+  closeModal(termsModal)
+})
+
+// Privacy Policy Modal Events
+privacyLink.addEventListener("click", (e) => {
+  e.preventDefault()
+  openModal(privacyModal)
+})
+
+privacyClose.addEventListener("click", () => {
+  closeModal(privacyModal)
+})
+
+privacyAccept.addEventListener("click", () => {
+  closeModal(privacyModal)
+})
+
+privacyCloseBtn.addEventListener("click", () => {
+  closeModal(privacyModal)
+})
+
+// Close modals when clicking outside
+termsModal.addEventListener("click", (e) => {
+  if (e.target === termsModal) {
+    closeModal(termsModal)
+  }
+})
+
+privacyModal.addEventListener("click", (e) => {
+  if (e.target === privacyModal) {
+    closeModal(privacyModal)
+  }
+})
+
+// Close modals with Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal(termsModal)
+    closeModal(privacyModal)
+  }
+})
 
 RegisterLink.addEventListener("click", () => {
   container.classList.add("active")

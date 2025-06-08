@@ -116,7 +116,7 @@
                 <div class="checkbox-container animation" style="--li:24; --S:7;">
                     <input type="checkbox" id="terms-checkbox" name="agreeToTerms" required>
                     <label for="terms-checkbox" class="checkbox-label">
-                        I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="privacy-link">Privacy Policy</a>
+                        I agree to the <a href="#" class="terms-link" id="terms-link">Terms of Service</a> and <a href="#" class="privacy-link" id="privacy-link">Privacy Policy</a>
                     </label>
                 </div>
 
@@ -138,6 +138,156 @@
         <div class="info-content Register">
             <h2 class="animation" style="--li:17; --S:0;">Hi there,</h2>
             <p class="animation" style="--li:18; --S:0;">You can register to our website and help us find the fires</p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div class="modal-overlay" id="terms-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Terms of Service</h2>
+                <button class="modal-close" id="terms-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>1. Acceptance of Terms</h3>
+                <p>By accessing and using TroyaOnFire, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                
+                <h3>2. Use License</h3>
+                <p>Permission is granted to temporarily download one copy of TroyaOnFire materials for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
+                <ul>
+                    <li>modify or copy the materials</li>
+                    <li>use the materials for any commercial purpose or for any public display</li>
+                    <li>attempt to reverse engineer any software contained on the website</li>
+                    <li>remove any copyright or other proprietary notations from the materials</li>
+                </ul>
+
+                <h3>3. Fire Reporting Responsibilities</h3>
+                <p>When reporting fires or emergencies through our platform:</p>
+                <ul>
+                    <li>Provide accurate and truthful information</li>
+                    <li>Do not submit false or misleading reports</li>
+                    <li>Contact local emergency services (911) for immediate emergencies</li>
+                    <li>Use our platform as a supplementary reporting tool only</li>
+                </ul>
+
+                <h3>4. User Accounts</h3>
+                <p>You are responsible for safeguarding the password and for maintaining the confidentiality of your account. You agree not to disclose your password to any third party.</p>
+
+                <h3>5. Privacy and Data Collection</h3>
+                <p>We collect and use your personal information in accordance with our Privacy Policy. By using our service, you consent to such processing and you warrant that all data provided by you is accurate.</p>
+
+                <h3>6. Prohibited Uses</h3>
+                <p>You may not use our service:</p>
+                <ul>
+                    <li>For any unlawful purpose or to solicit others to perform unlawful acts</li>
+                    <li>To violate any international, federal, provincial, or state regulations, rules, laws, or local ordinances</li>
+                    <li>To infringe upon or violate our intellectual property rights or the intellectual property rights of others</li>
+                    <li>To harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate</li>
+                    <li>To submit false or misleading information</li>
+                </ul>
+
+                <h3>7. Disclaimer</h3>
+                <p>The information on this website is provided on an 'as is' basis. To the fullest extent permitted by law, this Company excludes all representations, warranties, conditions and terms.</p>
+
+                <h3>8. Limitations</h3>
+                <p>In no event shall TroyaOnFire or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on TroyaOnFire's website.</p>
+
+                <h3>9. Contact Information</h3>
+                <p>If you have any questions about these Terms of Service, please contact us at legal@troyaonfire.com</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn modal-btn" id="terms-accept">I Accept</button>
+                <button class="btn modal-btn secondary" id="terms-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal-overlay" id="privacy-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Privacy Policy</h2>
+                <button class="modal-close" id="privacy-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>1. Information We Collect</h3>
+                <p>We collect information you provide directly to us, such as when you create an account, report a fire, or contact us for support.</p>
+                
+                <h4>Personal Information:</h4>
+                <ul>
+                    <li>Name and email address</li>
+                    <li>Geographic location and region</li>
+                    <li>Professional role and affiliation</li>
+                    <li>Account credentials</li>
+                </ul>
+
+                <h4>Fire Report Data:</h4>
+                <ul>
+                    <li>Location coordinates</li>
+                    <li>Time and date of reports</li>
+                    <li>Description and severity information</li>
+                    <li>Photos or media uploads</li>
+                </ul>
+
+                <h3>2. How We Use Your Information</h3>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Provide, maintain, and improve our services</li>
+                    <li>Process and respond to fire reports</li>
+                    <li>Send you technical notices and support messages</li>
+                    <li>Communicate with emergency services when necessary</li>
+                    <li>Analyze usage patterns to improve our platform</li>
+                </ul>
+
+                <h3>3. Information Sharing</h3>
+                <p>We may share your information in the following circumstances:</p>
+                <ul>
+                    <li><strong>Emergency Services:</strong> Fire reports may be shared with local fire departments and emergency responders</li>
+                    <li><strong>Legal Requirements:</strong> When required by law or to protect rights and safety</li>
+                    <li><strong>Service Providers:</strong> With trusted third parties who assist in operating our platform</li>
+                    <li><strong>Aggregated Data:</strong> Non-personal, statistical information for research purposes</li>
+                </ul>
+
+                <h3>4. Data Security</h3>
+                <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.</p>
+
+                <h3>5. Data Retention</h3>
+                <p>We retain your personal information for as long as necessary to provide our services and fulfill the purposes outlined in this policy, unless a longer retention period is required by law.</p>
+
+                <h3>6. Your Rights</h3>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access and update your personal information</li>
+                    <li>Request deletion of your account and data</li>
+                    <li>Opt out of non-essential communications</li>
+                    <li>Request a copy of your data</li>
+                </ul>
+
+                <h3>7. Cookies and Tracking</h3>
+                <p>We use cookies and similar technologies to enhance your experience, analyze usage, and provide personalized content. You can control cookie settings through your browser.</p>
+
+                <h3>8. Third-Party Services</h3>
+                <p>Our platform may contain links to third-party websites or services. We are not responsible for the privacy practices of these external sites.</p>
+
+                <h3>9. Children's Privacy</h3>
+                <p>Our service is not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
+
+                <h3>10. Changes to This Policy</h3>
+                <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last Updated" date.</p>
+
+                <h3>11. Contact Us</h3>
+                <p>If you have questions about this Privacy Policy, please contact us at:</p>
+                <ul>
+                    <li>Email: privacy@troyaonfire.com</li>
+                    <li>Address: TroyaOnFire Privacy Team, 123 Fire Safety Blvd, Emergency City, EC 12345</li>
+                </ul>
+
+                <p><strong>Last Updated:</strong> January 2024</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn modal-btn" id="privacy-accept">I Understand</button>
+                <button class="btn modal-btn secondary" id="privacy-close-btn">Close</button>
+            </div>
         </div>
     </div>
 
