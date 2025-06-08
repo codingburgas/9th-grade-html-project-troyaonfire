@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TroyaOnFire | SignIn</title>
-    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="stylesheet" href="login.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    
-
 </head>
 <body>
     <div class="container">
         <div class="curved-shape"></div>
         <div class="curved-shape2"></div>
+        
+        <!-- LOGIN FORM -->
         <div class="form-box Login">
             <h2 class="animation" style="--D:0; --S:21">Login</h2>
             <form id="login-form">
                 <div class="input-box animation" style="--D:1; --S:22">
                     <input type="email" id="login-email" name="email" required>
                     <label for="login-email">Email</label>
-                    <i class='bx bxs-user'  ></i>
+                    <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box animation" style="--D:2; --S:23">
                     <input type="password" id="login-password" name="password" required>
@@ -29,55 +29,115 @@
                 <div class="input-box animation" style="--D:3; --S:24">
                     <button class="btn" type="submit">Login</button>
                 </div>
-
                 <div class="regi-link animation" style="--D:4; --S:25">
                     <p>Don't have an account? <a href="#" class="SignUpLink">SignUp</a></p>
                 </div>
             </form>
         </div>
-        <div class="info-content Login">
-            <h2 class="animation" style="--D:0; --S:20">WELCOME BACK!</h2>
-        </div>
+
+        <!-- REGISTER FORM -->
         <div class="form-box Register">
             <h2 class="animation" style="--li:17; --S:0;">Register</h2>
             <form id="register-form">
-                
-                <div class="input-box animation" style="--li:18; --S:1;">
+                <!-- First Name and Last Name -->
+                <div class="name-row animation" style="--li:18; --S:1;">
+                    <div class="input-box half-width">
+                        <input type="text" id="register-firstname" name="firstname" required>
+                        <label for="register-firstname">First Name</label>
+                        <i class='bx bxs-user'></i>
+                    </div>
+                    <div class="input-box half-width">
+                        <input type="text" id="register-lastname" name="lastname" required>
+                        <label for="register-lastname">Last Name</label>
+                        <i class='bx bxs-user'></i>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="input-box animation" style="--li:19; --S:2;">
                     <input type="email" id="register-email" name="email" required>
                     <label for="register-email">Email</label>
                     <i class='bx bxs-envelope'></i>
                 </div>
-                <div class="input-box animation" style="--li:18; --S:1;">
-                    <input type="text" id="register-country" name="country" required>
-                    <label for="register-country">Country</label>
-                    <i class='bx bxs-flag-alt-2'></i>
+
+                <!-- Region Dropdown -->
+                <div class="input-box animation" style="--li:20; --S:3;">
+                    <select id="register-region" name="region" required>
+                        <option value="" disabled selected>Select your region</option>
+                        <option value="north-america">North America</option>
+                        <option value="south-america">South America</option>
+                        <option value="europe">Europe</option>
+                        <option value="asia">Asia</option>
+                        <option value="africa">Africa</option>
+                        <option value="oceania">Oceania</option>
+                    </select>
+                    <label for="register-region" class="select-label">Your Region</label>
+                    <i class='bx bxs-map'></i>
                 </div>
-                <div class="input-box animation" style="--li:19; --S:2;">
+
+                <!-- Role Dropdown -->
+                <div class="input-box animation" style="--li:21; --S:4;">
+                    <select id="register-role" name="role" required>
+                        <option value="" disabled selected>Select your role</option>
+                        <option value="citizen">Citizen</option>
+                        <option value="firefighter">Firefighter</option>
+                        <option value="emergency-responder">Emergency Responder</option>
+                        <option value="government-official">Government Official</option>
+                        <option value="researcher">Researcher</option>
+                    </select>
+                    <label for="register-role" class="select-label">I am a...</label>
+                    <i class='bx bxs-briefcase'></i>
+                </div>
+
+                <!-- Password -->
+                <div class="input-box animation" style="--li:22; --S:5;">
                     <input type="password" id="register-password" name="password" required>
                     <label for="register-password">Password</label>
                     <i class='bx bxs-lock-alt'></i> 
                 </div>
-                <div class="input-box animation" style="--li:20; --S:3;">
-                    <button class="btn" type="submit">Register</button>
+
+                <!-- Confirm Password -->
+                <div class="input-box animation" style="--li:23; --S:6;">
+                    <input type="password" id="register-confirm-password" name="confirmPassword" required>
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <i class='bx bxs-lock-alt'></i> 
                 </div>
-                <div class="regi-link animation" style="--li:21; --S:4;">
+
+                <!-- Terms and Privacy -->
+                <div class="checkbox-container animation" style="--li:24; --S:7;">
+                    <input type="checkbox" id="terms-checkbox" name="agreeToTerms" required>
+                    <label for="terms-checkbox" class="checkbox-label">
+                        I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="privacy-link">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="input-box animation" style="--li:25; --S:8;">
+                    <button class="btn" type="submit">Create Account</button>
+                </div>
+
+                <div class="regi-link animation" style="--li:26; --S:9;">
                     <p>Already have an account? <a href="#" class="SignInLink">Sign In</a></p>
                 </div>
             </form>
+        </div>
+
+        <!-- INFO CONTENT -->
+        <div class="info-content Login">
+            <h2 class="animation" style="--D:0; --S:20">WELCOME BACK!</h2>
         </div>
         <div class="info-content Register">
             <h2 class="animation" style="--li:17; --S:0;">Hi there,</h2>
             <p class="animation" style="--li:18; --S:0;">You can register to our website and help us find the fires</p>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("AajpVPu832qB6cqgy"); 
-  })();
-</script>
-
-   <script src="../JS/login.js"></script>
-
+    <script>
+        (function(){
+            emailjs.init("AajpVPu832qB6cqgy"); 
+        })();
+    </script>
+    <script src="login.js"></script>
 </body>
 </html>
