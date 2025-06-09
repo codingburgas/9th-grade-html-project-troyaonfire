@@ -34,3 +34,13 @@ document.addEventListener('click', function(event) {
     menuToggle.classList.remove('active');
   }
 });
+document.getElementById('searchBtn').addEventListener('click', function() {
+  const searchContainer = document.getElementById('searchContainer');
+  const searchInput = document.getElementById('searchInput');
+
+  searchContainer.classList.toggle('expanded');
+
+  if (searchContainer.classList.contains('expanded')) {
+    searchInput.focus();
+  }
+});
