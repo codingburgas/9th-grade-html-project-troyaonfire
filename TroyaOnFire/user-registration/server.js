@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const User = require('./models/User.model'); 
 const News = require('./models/News.model'); 
+const Event = require('./models/Event.model'); 
 
 const app = express();
 const saltRounds = 10;
@@ -118,6 +119,24 @@ app.post('/createNewsPost', (req, res) => {
 
         newPost.save()
         .then(() => res.send({ success: true, message: 'Post created successfully' }))
+        .catch(err => {
+          console.error(err);
+          res.status(500).send('Server error');
+        });
+})
+  
+app.post('/createEventsPost', (req, res) => {
+  const { eventType, eventDate, eventLocation, eventHour, email} = req.body;
+  const newEvent = new Event({
+          email: email,
+          eventType: eventType,
+          eventDate: eventDate,
+          eventLocation: eventLocation,
+          eventTime: eventHour
+        });
+
+        newEvent.save()
+        .then(() => res.send({ success: true, message: 'Event created successfully' }))
         .catch(err => {
           console.error(err);
           res.status(500).send('Server error');

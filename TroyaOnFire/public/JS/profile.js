@@ -189,3 +189,47 @@ document.querySelector(".share-post").addEventListener("click", function() {
     alert('Please fill in all fields before sharing the post.');
   }
 })
+
+document.querySelector(".share-event").addEventListener("click", function() {
+  const eventDate = document.querySelector(".event-date-select").value;
+  const eventHour = document.querySelector(".event-hour-select").value;
+  const eventLocation = document.querySelector(".share-event-location").value;
+  const eventType = document.querySelector(".share-event-type").value;
+
+  console.log(eventDate, eventHour, eventLocation, eventType, JSON.parse(localStorage.getItem('user')).email);
+  if( eventDate && eventHour && eventLocation && eventType) {
+    fetch('/createEventsPost', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        eventDate: eventDate,
+        eventHour: eventHour,
+        eventLocation: eventLocation,
+        eventType: eventType,
+        email: JSON.parse(localStorage.getItem('user')).email // Pulling the email from the locally stored user data
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert('Post shared successfully!');
+        // Optionally, clear the form fields
+        document.querySelector(".event-date-select").value = '';
+        document.querySelector(".event-hour-select").value = '';
+        document.querySelector(".share-event-location").value = '';
+        document.querySelector(".share-event-type").value = '';
+      } else {
+        alert('Error sharing post: ' + data.message);
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('An error occurred while sharing the post.');
+    });
+  }
+  else {
+    alert('Please fill in all fields before sharing the post.');
+  }
+})
