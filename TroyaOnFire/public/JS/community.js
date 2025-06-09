@@ -133,3 +133,38 @@ searchInputs.header.addEventListener('input', function() {
   }
   filterCards();
 });
+const stats = {
+  totalMembers: { element: document.getElementById('totalMembers'), current: 1247, target: 1247 },
+  firefighters: { element: document.getElementById('firefighters'), current: 91, target: 91 },
+  safetyExperts: { element: document.getElementById('safetyExperts'), current: 28, target: 28 },
+  activeToday: { element: document.getElementById('activeToday'), current: 156, target: 156 }
+};
+
+function updateStats() {
+  Object.keys(stats).forEach(key => {
+    const stat = stats[key];
+    const change = Math.floor(Math.random() * 21) - 10;
+    const newValue = Math.max(0, stat.current + change);
+
+    if (newValue !== stat.current) {
+      const isIncrease = newValue > stat.current;
+      stat.current = newValue;
+      stat.element.textContent = stat.current.toLocaleString();
+
+      stat.element.classList.remove('stat-increase', 'stat-decrease');
+
+      if (isIncrease) {
+        stat.element.classList.add('stat-increase');
+      } else {
+        stat.element.classList.add('stat-decrease');
+      }
+
+      setTimeout(() => {
+        stat.element.classList.remove('stat-increase', 'stat-decrease');
+      }, 500);
+    }
+  });
+}
+
+setInterval(updateStats, 3000);
+setTimeout(updateStats, 2000);
