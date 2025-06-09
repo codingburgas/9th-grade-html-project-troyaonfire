@@ -168,3 +168,4 @@ function updateStats() {
 
 setInterval(updateStats, 3000);
 setTimeout(updateStats, 2000);
+filterCards();
