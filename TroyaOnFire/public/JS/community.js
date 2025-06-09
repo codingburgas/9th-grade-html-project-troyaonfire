@@ -44,3 +44,92 @@ document.getElementById('searchBtn').addEventListener('click', function() {
     searchInput.focus();
   }
 });
+const searchInputs = {
+  header: document.getElementById('searchInput'),
+  department: document.getElementById('departmentSearch'),
+  name: document.getElementById('nameSearch'),
+  position: document.getElementById('staff-type-select'),
+  country: document.getElementById('country-select')
+};
+
+const cards = document.querySelectorAll('.card:not(.no-results)');
+const noResults = document.getElementById('noResults');
+const resultsCounter = document.getElementById('resultsCounter');
+
+function filterCards() {
+  const filters = {
+    header: searchInputs.header.value.toLowerCase().trim(),
+    department: searchInputs.department.value.toLowerCase().trim(),
+    name: searchInputs.name.value.toLowerCase().trim(),
+    position: searchInputs.position.value.toLowerCase().trim(),
+    country: searchInputs.country.value.toLowerCase().trim()
+  };
+
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const cardData = {
+      name: card.dataset.name.toLowerCase(),
+      position: card.dataset.position.toLowerCase(),
+      location: card.dataset.location.toLowerCase(),
+      country: card.dataset.country.toLowerCase()
+    };
+
+    let isVisible = true;
+
+    if (filters.header) {
+      isVisible = isVisible && (
+        cardData.name.includes(filters.header) ||
+        cardData.position.includes(filters.header) ||
+        cardData.location.includes(filters.header) ||
+        cardData.country.includes(filters.header)
+      );
+    }
+
+    if (filters.department) {
+      isVisible = isVisible && cardData.location.includes(filters.department);
+    }
+
+    if (filters.name) {
+      isVisible = isVisible && cardData.name.includes(filters.name);
+    }
+
+    if (filters.position) {
+      isVisible = isVisible && cardData.position.includes(filters.position);
+    }
+
+    if (filters.country) {
+      isVisible = isVisible && cardData.country.includes(filters.country);
+    }
+
+    if (isVisible) {
+      card.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  if (visibleCount === 0) {
+    noResults.classList.remove('hidden');
+    resultsCounter.textContent = 'No members found';
+  } else {
+    noResults.classList.add('hidden');
+    resultsCounter.textContent = `Showing ${visibleCount} member${visibleCount !== 1 ? 's' : ''}`;
+  }
+}
+
+Object.values(searchInputs).forEach(input => {
+  input.addEventListener('input', filterCards);
+  input.addEventListener('change', filterCards);
+});
+
+searchInputs.header.addEventListener('input', function() {
+  if (this.value.trim()) {
+    searchInputs.department.value = '';
+    searchInputs.name.value = '';
+    searchInputs.position.value = '';
+    searchInputs.country.value = '';
+  }
+  filterCards();
+});
