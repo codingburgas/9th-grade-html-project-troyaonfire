@@ -8,49 +8,51 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+<!-- Sidebar -->
   <nav class="sidebar" id="sidebar">
     <span class="sidebar-heading">Dashboard</span>
     <ul>
-      <li><a href="map.html"><i class="fas fa-fire"></i> Fire Reports</a></li>
-      <li><a href="newspage.html"><i class="fas fa-newspaper"></i> News & Events</a></li>
-      <li><a href="community.html"><i class="fas fa-users"></i> Organization</a></li>
-      <li><a href="FAQ.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
-      <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+      <li><a href="../index.html" class="active">Home</a></li>
+      <li><a href="map.html" class="active">Fire Reports</a></li>
+      <li><a href="newspage.html">News & Events</a></li>
+      <li><a href="community.html">Organization</a></li>
+      <li><a href="FAQ.html">FAQ</a></li>
     </ul>
   </nav>
 
+  <!-- Header -->
   <header class="navbar">
     <div class="menu-icon" id="menuToggle">
-      <span></span>
-      <span></span>
-      <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-
-    <a href="../index.html" class="site-title">Troya<span class="highlight">OnFire</span></a>
+    
+  <a href="../index.html"><h1 class="site-title">Troya<span class="highlight">OnFire</span></h1></a>
 
     <div class="nav-actions">
-      <div class="search-container" id="searchContainer">
-        <input type="text" id="searchInput" placeholder="Search community...">
-        <button class="icon-button" id="searchBtn" aria-label="Search">
-          <i class="fa-solid fa-magnifying-glass"></i>
+        <div class="search-container" id="searchContainer">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button class="icon-button" id="searchBtn" aria-label="Search">
+                <i class="fa-solid fa-magnifying-glass fa-sm" style="color: #ffffff;"></i>
+            </button>
+        </div>
+
+        <label class="toggle-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+
+        <button class="icon-button" aria-label="Add">
+            <i class="fa-solid fa-plus fa-xs" style="color: #ffffff;"></i>
         </button>
-      </div>
-
-      <label class="toggle-switch">
-        <input type="checkbox" id="themeToggle">
-        <span class="slider"></span>
-      </label>
-
-      <button class="icon-button" id="addPostBtn" aria-label="Add">
-        <i class="fa-solid fa-plus"></i>
-      </button>
-
-      <a href="profile.html" class="icon-button" aria-label="User Profile">
-        <i class="fa-regular fa-user"></i>
-      </a>
+        <a href=profile.html><button class="icon-button" aria-label="User Profile">
+            <i class="fa-regular fa-user fa-sm" style="color: #ffffff;"></i></a>
+        </button>
     </div>
   </header>
 
+  <!-- Main Content -->
   <div class="main-container">
     <div class="top-section">
       <div class="search-box">

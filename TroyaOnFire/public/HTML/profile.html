@@ -12,11 +12,11 @@
   <nav class="sidebar" id="sidebar">
     <span class="sidebar-heading">Dashboard</span>
     <ul>
-      <li><a href="map.html">Fire Reports</a></li>
+      <li><a href="../index.html" class="active">Home</a></li>
+      <li><a href="map.html" class="active">Fire Reports</a></li>
       <li><a href="newspage.html">News & Events</a></li>
-      <li><a href="#">Organization</a></li>
+      <li><a href="community.html">Organization</a></li>
       <li><a href="FAQ.html">FAQ</a></li>
-      <li><a href="#">Settings</a></li>
     </ul>
   </nav>
 
@@ -80,6 +80,12 @@
         <label for="post-type-select">Post Type</label>
         <select class="share-post-select" id="post-type-select">
           <option>All post types</option>
+          <option>Share with community</option>
+          <option>Hot news</option>
+          <option>Fire safety tips</option>
+          <option>Fire incidents</option>
+          <option>Fire department updates</option>
+          <option>Firefighting equipment</option>
         </select>
         <input class="share-post-title" type="text" placeholder="Enter Title here" />
         <textarea class="share-post-description" placeholder="Share your report here..."></textarea>
@@ -89,13 +95,32 @@
       <div class="container container-event">
         <h3>+ Share your event</h3>
         <label for="event-date-select">Event Date</label>
-        <select id="event-date-select"><option>Chosen event date</option></select>
+        <input type="date" id="event-date-select" name="date">
         <label for="event-hour-select">Event Hour</label>
-        <select id="event-hour-select"><option>Chosen event hour</option></select>
+        <input type="time" id="event-hour-select" name="event-hour">
+
         <label for="event-location-select">Event Location</label>
-        <select id="event-location-select"><option>Chosen event location</option></select>
+        <select class="share-event-location" id="event-location-select">
+        <option>Chosen event location</option>
+        <option>Bulgaria</option>
+        <option>Turkey</option>
+        <option>Greece</option>
+        <option>Italy</option>
+        <option>Spain</option>
+        <option>Portugal</option>
+        <option>France</option>
+        <option>Germany</option>
+        <option>United Kingdom</option>
+        </select>
+
         <label for="event-type-select">Event Type</label>
-        <select id="event-type-select"><option>Chosen event type</option></select>
+        <select class="share-event-type" id="event-type-select">
+          <option>All event types</option>
+          <option>Training</option>
+          <option>Drill</option>
+          <option>Workshop</option>
+        </select>
+
         <button>+ Share post</button>
       </div>
     </div>

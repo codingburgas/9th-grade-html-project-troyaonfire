@@ -153,7 +153,7 @@ input:checked + .slider:before {
 
 .sidebar-heading {
 font-size: 1.5rem;
-  color: var(--sidebar-heading);
+  color: #ffffffa1;
   margin-top: 4rem; /* Reduced from 100rem to a reasonable value */
   margin-bottom: 2rem;
   font-weight: bold;
@@ -220,6 +220,7 @@ font-size: 1.5rem;
   align-items: center;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .site-title:hover {

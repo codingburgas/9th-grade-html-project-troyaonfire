@@ -340,6 +340,19 @@ textarea {
   resize: none;
 }
 
+.share-post-select option {
+  background-color: #000;
+  color: var(--text);
+}
+.share-event-location option {
+  background-color: #000;
+  color: var(--text);
+}
+.share-event-type option {
+  background-color: #000;
+  color: var(--text);
+}
+
 button {
   background-color: #b30000;
   color: white;
