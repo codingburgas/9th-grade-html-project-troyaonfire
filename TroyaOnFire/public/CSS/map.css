@@ -155,7 +155,7 @@ input:checked + .slider:before {
 
 .sidebar-heading {
 font-size: 1.5rem;
-  color: #000;
+  color: var(--sidebar-heading);
   margin-top: 4rem; /* Reduced from 100rem to a reasonable value */
   margin-bottom: 2rem;
   font-weight: bold;
