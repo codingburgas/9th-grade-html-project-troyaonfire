@@ -54,7 +54,8 @@
 - <img src="https://github.com/user-attachments/assets/84ef97f0-49fd-46c0-abbf-5cad9c3e3b4a" width="20" alt="Figma logo"><a href="https://www.figma.com/">Figma</a> 
 
 -----------------------------------------------------------------------------------------------------------------------------------
-- Programing languages:  <img src="https://coryrylan.com/assets/images/posts/types/css.svg" width="28" alt="CSS Logo"> <b>CSS</b> <img src="https://kinsta.com/wp-content/uploads/2021/03/HTML-5-Badge-Logo.png" width="40" alt="HTML logo"> <b>HTML</b> <img src="https://github.com/user-attachments/assets/d4f70bb4-4593-4e95-9fb8-f4c56901da93" width="20" alt="JavaScrpipt logo"> <b>JavaScript</b>
+- Frontend:  <img src="https://coryrylan.com/assets/images/posts/types/css.svg" width="28" alt="CSS Logo"> <b>CSS</b> <img src="https://kinsta.com/wp-content/uploads/2021/03/HTML-5-Badge-Logo.png" width="40" alt="HTML logo"> <b>HTML</b>
+- Backend:   <img src="https://github.com/user-attachments/assets/d4f70bb4-4593-4e95-9fb8-f4c56901da93" width="20" alt="JavaScrpipt logo"> <b>JavaScript</b>
 
  
     
