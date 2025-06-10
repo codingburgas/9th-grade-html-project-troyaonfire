@@ -24,6 +24,11 @@ const EventsSchema = new Schema(
         type: String,
         required: true,
     },
+    initials: {
+      type: String,
+      required: true,
+    },
+    
   },
   { timestamps: true, collection: 'events-posts' } // Specify collection name
 );

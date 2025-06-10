@@ -57,81 +57,21 @@
   <main class="main-content">
     <!-- Tab Navigation -->
     <div class="tab-navigation">
-      <button class="tab-btn active">News</button>
-      <button class="tab-btn">Events</button>
+      <button class="tab-btn active" data-action="events-grid" data-tab="news-grid">News</button>
+      <button class="tab-btn" data-action="news-grid" data-tab="events-grid">Events</button>
     </div>
 
     <!-- News Grid -->
     <div class="news-grid" id="newsGrid">
       <!-- Posts will be loaded here -->
     </div>
+
+    <div class="events-grid" id="eventsGrid">
+      <!-- Posts will be loaded here -->
+    </div>
   </main>
 
-  <!-- Post Modal -->
-  <div class="modal-overlay" id="postModal">
-    <div class="post-modal">
-      <div class="modal-header">
-        <h2 class="modal-title">Create New Post</h2>
-        <button class="close-btn" id="closeModal" aria-label="Close">
-          <i class="fa-solid fa-times"></i>
-        </button>
-      </div>
-      
-      <form id="postForm">
-        <div class="form-group">
-          <label for="postTitle">Title</label>
-          <input type="text" id="postTitle" name="title" required placeholder="Enter post title...">
-        </div>
-        
-        <div class="form-group">
-          <label for="postCategory">Category</label>
-          <select id="postCategory" name="category" required>
-            <option value="">Select category...</option>
-            <option value="Fire Report">Fire Report</option>
-            <option value="Safety Alert">Safety Alert</option>
-            <option value="News">News</option>
-            <option value="Training">Training</option>
-            <option value="Equipment">Equipment</option>
-            <option value="Community">Community</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="postContent">Content</label>
-          <textarea id="postContent" name="content" required placeholder="Write your post content here..."></textarea>
-        </div>
-        
-        <div class="form-group">
-          <label for="postSource">Source (optional)</label>
-          <input type="url" id="postSource" name="source" placeholder="https://example.com">
-        </div>
-        
-        <div class="form-actions">
-          <button type="button" class="btn secondary" id="cancelPost">Cancel</button>
-          <button type="submit" class="btn primary">Post</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <!-- Delete Confirmation Modal -->
-<div class="modal-overlay" id="deleteModal">
-  <div class="post-modal" style="max-width: 400px;">
-    <div class="modal-header">
-      <h2 class="modal-title">Confirm Deletion</h2>
-      <button class="close-btn" id="closeDeleteModal">
-        <span class="visually-hidden">Close</span>
-        <i class="fa-solid fa-times"></i>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p>Are you sure you want to delete this post? This action cannot be undone.</p>
-    </div>
-    <div class="form-actions">
-      <button type="button" class="btn secondary" id="cancelDelete">Cancel</button>
-      <button type="button" class="btn primary" id="confirmDelete">Delete</button>
-    </div>
-  </div>
-</div>
+  
 <script src="../JS/newspage.js"></script>
   
 </body>

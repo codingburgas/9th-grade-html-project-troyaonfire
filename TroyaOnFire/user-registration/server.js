@@ -110,11 +110,23 @@ app.post('/login', async (req, res) => {
 
 app.post('/createNewsPost', (req, res) => {
   const { postType, postTitle, description, email } = req.body;
-  const newPost = new News({
+  let initials = '';
+
+  User.find({ email: email })
+    .then((result) => {
+      if (result.length === 0) {
+        return res.status(404).send('User not found');
+      }
+
+      const user = result[0];
+      initials = user.firstName.charAt(0).toUpperCase() + user.lastName.charAt(0).toUpperCase();
+
+      const newPost = new News({
           email: email,
           postType: postType,
           postTitle: postTitle,
-          postDescription: description
+          postDescription: description,
+          initials: initials
         });
 
         newPost.save()
@@ -123,16 +135,35 @@ app.post('/createNewsPost', (req, res) => {
           console.error(err);
           res.status(500).send('Server error');
         });
+    })
+    .catch(err => {
+      console.error(err);
+      return res.status(500).send('Server error');
+    });
+
 })
   
 app.post('/createEventsPost', (req, res) => {
   const { eventType, eventDate, eventLocation, eventHour, email} = req.body;
-  const newEvent = new Event({
+
+  let initials = '';
+
+  User.find({ email: email })
+    .then((result) => {
+      if (result.length === 0) {
+        return res.status(404).send('User not found');
+      }
+
+      const user = result[0];
+      initials = user.firstName.charAt(0).toUpperCase() + user.lastName.charAt(0).toUpperCase();
+
+      const newEvent = new Event({
           email: email,
           eventType: eventType,
           eventDate: eventDate,
           eventLocation: eventLocation,
-          eventTime: eventHour
+          eventTime: eventHour,
+          initials: initials
         });
 
         newEvent.save()
@@ -141,5 +172,42 @@ app.post('/createEventsPost', (req, res) => {
           console.error(err);
           res.status(500).send('Server error');
         });
+    })
+    .catch(err => {
+      console.error(err);
+      return res.status(500).send('Server error');
+    });
+    
+  
 })
+
+// Get all posts
+app.get('/getPosts', (req, res) => {
+  const typeOfPosts = req.query.typeOfPosts;
+
+  if (typeOfPosts === 'news-grid') {
+    News.find()
+      .then(posts => res.send({
+        payload: true,
+        posts: posts
+      }))
+      .catch(err => {
+        console.error(err);
+        res.status(500).send('Server error');
+      });
+  } else if (typeOfPosts === 'events-grid') {
+    Event.find()
+      .then(posts => res.send({
+        payload: true,
+        posts: posts
+      }))
+      .catch(err => {
+        console.error(err);
+        res.status(500).send('Server error');
+      });
+  } else {
+    res.status(400).send('Invalid post type');
+  }
+})
+
   

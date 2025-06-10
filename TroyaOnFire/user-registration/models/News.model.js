@@ -19,6 +19,10 @@ const NewsSchema = new Schema(
       type: String,
       required: true,
     },
+    initials: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true, collection: 'news-posts' } // Specify collection name
 );
