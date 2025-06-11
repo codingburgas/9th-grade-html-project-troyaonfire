@@ -54,7 +54,7 @@
 - <img src="https://github.com/user-attachments/assets/84ef97f0-49fd-46c0-abbf-5cad9c3e3b4a" width="20" alt="Figma logo"><a href="https://www.figma.com/">Figma</a> 
 
 -----------------------------------------------------------------------------------------------------------------------------------
-- Frontend:  <img src="https://coryrylan.com/assets/images/posts/types/css.svg" width="28" alt="CSS Logo"> <b>CSS</b> <img src="https://kinsta.com/wp-content/uploads/2021/03/HTML-5-Badge-Logo.png" width="40" alt="HTML logo"> <b>HTML</b>
+- Frontend:  <img src="https://coryrylan.com/assets/images/posts/types/css.svg" width="28" alt="CSS Logo"> <b>CSS</b> <img src="https://kinsta.com/wp-content/uploads/2021/03/HTML-5-Badge-Logo.png" width="40" alt="HTML logo"> <b>HTML</b> <img src="https://github.com/user-attachments/assets/d4f70bb4-4593-4e95-9fb8-f4c56901da93" width="20" alt="JavaScrpipt logo"> <b>JavaScript</b>
 - Backend:   <img src="https://github.com/user-attachments/assets/d4f70bb4-4593-4e95-9fb8-f4c56901da93" width="20" alt="JavaScrpipt logo"> <b>JavaScript</b>
 
  
@@ -82,11 +82,12 @@ Email: GVLitsanowski@codingburgas.bg
 <h2>📁Documentation</h2>    
 <hr>
  
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg/2203px-Microsoft_Office_Word_%282019%E2%80%93present%29.svg.png" width="20" alt="MS Word Logo"> <a href="">Documentation</a>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg/2203px-Microsoft_Office_Word_%282019%E2%80%93present%29.svg.png" width="20" alt="MS Word Logo"> <a href="https://codingburgas-my.sharepoint.com/:w:/g/personal/ummustafa23_codingburgas_bg/Efvf-wQPDbJBpjCAaJw3JrABFpfE64I8Qo1sofYotvu1QA?e=vMYw2E">Documentation</a>
 <br>
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Microsoft_PowerPoint_Logo.png" width="20" alt="MS PowerPoint Logo"> <a href="https://codingburgas-my.sharepoint.com/:p:/g/personal/ummustafa23_codingburgas_bg/EX7cbbiR6l5FnvdfRRyXX1IBfAfSGOGBTDqk-UVtgNFobg?rtime=N0piojKo3Ug">Presentation</a>
 <br>
- 
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Figma-1-logo.png" width="20" alt="Figma logo"> <a href="https://www.figma.com/design/41ih1ZusMM0jOpY0uMhZno/TroyaOnFire?node-id=0-1&t=X4Ug0RB4BYUUgYf1-1">Design</a>
+<br>
 </p>
 <h2>🛠️ Download</h2>
 <p>To download our project, clone our repository by pasting this command in your command prompt:</p>
