@@ -9,9 +9,6 @@
         --secondary-text: #ccc;
         --graphic-bg: #2f3440;
         --button-bg: linear-gradient(to right, #BF1818, #5F0909);
-        --light-bg: white;
-        --sidebar-light-bg: rgb(241, 245, 248);
-        --sidebar-dark-bg: #000000;
         --sidebar-text: #ffffff;
         --sidebar-heading: #ffffffa1;
         }
@@ -164,7 +161,7 @@
         left: -300px;
         width: 250px;
         height: 100%;
-        background: var(--sidebar-dark-bg);
+        background: #000000;
         color: white;
         padding: 2rem 1rem;
         transition: left 0.3s ease;
@@ -213,7 +210,7 @@
         }
 
         .site-title {
-        color: white;
+        color: #ffffffa1;
         font-size: 1.5rem;
         margin: 0 0 0 1rem;
         font-weight: bold;

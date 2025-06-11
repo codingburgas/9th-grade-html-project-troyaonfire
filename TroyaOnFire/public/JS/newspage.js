@@ -134,8 +134,7 @@
                 .then(response => response.json())
                 .then(data => {
                     document.querySelector(`.${typeOfPosts}`).innerHTML = ''; // Clear existing posts
-                    console.log(data.posts);
-                    
+
                     if (data.payload == true) {
                        if (data.posts.length > 0) {
                             if (typeOfPosts === 'news-grid') {
@@ -153,6 +152,32 @@
                                            <div class="news-content">${post.postDescription}</div>
                                            <div class="news-footer">
                                            <div class="news-category">${post.postType}</div>
+                                           </div>
+
+                                           <div class="news-indicators">
+                                           <div class="indicator active"></div>
+                                           <div class="indicator"></div>
+                                           <div class="indicator"></div>
+                                           </div>
+                                       </div>
+                                        `;  
+                            
+                                        });
+                            } else if (typeOfPosts === 'events-grid') {
+                                data.posts.forEach(post => {
+                                    document.querySelector(`.${typeOfPosts}`).innerHTML += `
+                                       <div class="news-card" data-post-id="${post._id}">
+                                           <div class="post-meta">
+                                           <div class="post-author">
+                                               <div class="user-avatar">${post.initials}</div>
+                                               <span>${post.email}</span>
+                                           </div>
+                                           <div class="post-time">${post.createdAt.split("T")[0]}</div>
+                                           </div>
+                                           <h3 class="news-title">On ${post.eventDate} | At ${post.eventTime}</h3>
+                                           <div class="news-content">In ${post.eventLocation}</div>
+                                           <div class="news-footer">
+                                           <div class="news-category">${post.eventType}</div>
                                            </div>
 
                                            <div class="news-indicators">
@@ -187,13 +212,13 @@
             btn.classList.add('active');
 
             // Show corresponding tab content
-            const actionAttribute = btn.getAttribute('data-action');
-            const currentTab = btn.getAttribute('data-tab');
+            const currentlyOpenTab = btn.getAttribute('data-action');
+            const tabToBeOpened = btn.getAttribute('data-tab');
 
-            document.querySelector(`.${actionAttribute}`).style.display = 'none';
-            document.querySelector(`.${currentTab}`).style.display = 'grid';
+            document.querySelector(`.${currentlyOpenTab}`).style.display = 'none';
+            document.querySelector(`.${tabToBeOpened}`).style.display = 'grid';
 
-            loadPosts(currentTab);
+            loadPosts(tabToBeOpened);
 
 
             });
@@ -218,4 +243,12 @@
         });
     })
 
+
+    document.querySelector(".logout-btn").addEventListener("click", () => {
+  localStorage.removeItem("user")
+  localStorage.removeItem("userCountry")
+  localStorage.removeItem("userRole")
+  localStorage.removeItem("loginExpiry")
+  location.href = "/HTML/login.html"
+})
     

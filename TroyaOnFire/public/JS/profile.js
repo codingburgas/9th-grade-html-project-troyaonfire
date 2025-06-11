@@ -233,3 +233,46 @@ document.querySelector(".share-event").addEventListener("click", function() {
     alert('Please fill in all fields before sharing the post.');
   }
 })
+
+document.querySelector(".logout-btn").addEventListener("click", () => {
+  localStorage.removeItem("user")
+  localStorage.removeItem("userCountry")
+  localStorage.removeItem("userRole")
+  localStorage.removeItem("loginExpiry")
+  location.href = "/HTML/login.html"
+})
+
+function loadUserData() {
+  const user = JSON.parse(localStorage.getItem('user'));
+  if (user) {
+    document.querySelector('.user-full-name').textContent = user.firstName + ' ' + user.lastName;
+    document.querySelector('.user-working-status').textContent = `Working Status: ${user.workingStatus}`;
+    document.querySelector('.user-region').innerHTML = `<i class="fa-solid fa-location-dot fa-xs" style="color: #ca1c1c;"></i> ${user.region}`;
+
+    fetch(`/getUserPostsCount?userEmail=${user.email}`).then(response => {
+      response.json().then(data => {
+        if (data.payload == true) {
+          document.querySelector('.user-post-count').innerHTML = `${data.count}</br>posts`;
+        } else {
+          console.error('Error fetching post count');
+          document.querySelector('.user-post-count').textContent = 'error';
+        }
+      });
+    })
+
+    document.querySelector('.avatar').innerHTML = `
+      <label class="avatar-initials">
+        <span>${user.firstName.charAt(0).toUpperCase()}${user.lastName.charAt(0).toUpperCase()}</span>
+      </label>
+    `;
+
+  } else {
+    console.warn('No user data found in localStorage');
+  }
+}
+
+try {
+  loadUserData();
+} catch (error) {
+  alert("An error occurred while loading user data. Please try again later or check if you're logged in.");
+}

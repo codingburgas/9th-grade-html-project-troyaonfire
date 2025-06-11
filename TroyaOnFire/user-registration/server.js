@@ -11,7 +11,6 @@ const Event = require('./models/Event.model');
 
 const app = express();
 const saltRounds = 10;
-const DATA_FILE = path.join(__dirname, 'users.json');
 
 // MongoDB connection setup (not used in this example, but included for completeness)
 const dbURI = 'mongodb+srv://ulvie1m:iaOCQGT4cWSNFdkk@cluster0.wc6l44v.mongodb.net/TroyaOnFire?retryWrites=true&w=majority&appName=Cluster0';
@@ -208,6 +207,27 @@ app.get('/getPosts', (req, res) => {
   } else {
     res.status(400).send('Invalid post type');
   }
+})
+
+app.get("/getUserPostsCount", (req, res) => {
+  const userEmail = req.query.userEmail;
+
+  News.find({ email: userEmail })
+    .then(newsPosts => {
+      Event.find({ email: userEmail })
+        .then(eventPosts => {
+          const totalCount = newsPosts.length + eventPosts.length;
+          res.send({ payload: true, count: totalCount });
+        })
+        .catch(err => {
+          console.error(err);
+          res.status(500).send('Server error');
+        });
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send('Server error');
+    });
 })
 
   

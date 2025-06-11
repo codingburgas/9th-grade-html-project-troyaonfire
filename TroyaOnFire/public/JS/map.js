@@ -693,3 +693,11 @@ window.addEventListener('resize', () => {
     document.getElementById('menuToggle').classList.remove('active');
   }
 });
+
+document.querySelector(".logout-btn").addEventListener("click", () => {
+  localStorage.removeItem("user")
+  localStorage.removeItem("userCountry")
+  localStorage.removeItem("userRole")
+  localStorage.removeItem("loginExpiry")
+  location.href = "/HTML/login.html"
+})

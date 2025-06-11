@@ -8,7 +8,6 @@
   --secondary-text: #ccc;
   --button-bg: linear-gradient(to right, #BF1818, #5F0909);
   --sidebar-text: #ffffff;
-  --sidebar-heading: #ffffffa1;
   --container-bg: #2E333C;
   --input-bg: #d9d9d93e;
 }
@@ -19,7 +18,6 @@ body.light {
   --secondary-text: #444;
   --graphic-bg: #e3e3e3;
   --button-bg: linear-gradient(to right, #BF1818, #5F0909);
-  --sidebar-heading: #00000061;
   --container-bg: #CFD2DE;
   --input-bg: #41444e3b;
 }
@@ -154,7 +152,7 @@ input:checked + .slider:before {
 
 .sidebar-heading {
 font-size: 1.5rem;
-  color: var(--sidebar-heading);
+  color: #ffffffa1;
   margin-top: 4rem; /* Reduced from 100rem to a reasonable value */
   margin-bottom: 2rem;
   font-weight: bold;
@@ -361,4 +359,18 @@ button {
   border-radius: 5px;
   align-self: flex-end;
   cursor: pointer;
+}
+
+.avatar-initials {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #b10a0a, #ff8800);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    font-size: 40px;
+    margin: auto;
+  }
 }

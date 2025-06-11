@@ -166,6 +166,14 @@ function updateStats() {
   });
 }
 
+document.querySelector(".logout-btn").addEventListener("click", () => {
+  localStorage.removeItem("user")
+  localStorage.removeItem("userCountry")
+  localStorage.removeItem("userRole")
+  localStorage.removeItem("loginExpiry")
+  location.href = "/HTML/login.html"
+})
+
 setInterval(updateStats, 3000);
 setTimeout(updateStats, 2000);
 filterCards();
